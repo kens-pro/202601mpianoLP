@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新春 初売りピアノフェア 2026｜ピアノ専門店トリイ</title>
+  <link rel="icon" type="image/png" href="https://placehold.co/32x32/bf0000/ffffff?text=T">
+
+  <!-- Fonts: 格式高い明朝体と可読性の高いゴシック -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;800&family=Zen+Old+Mincho:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* === VARIABLES: 世界観の定義 === */
+    :root {
+      --c-gold: #c5a059;
+      --c-gold-light: #f3e3a8;
+      --c-gold-glow: #e6c67e;
+      --c-red: #b30000;
+      --c-red-vivid: #d90000;
+      --c-black: #1a1a1a;
+      --c-text: #2c2c2c;
+      --c-bg: #fcfaf8; /* 生成り色 */
+      
+      --font-serif: 'Zen Old Mincho', serif;
+      --font-mincho: 'Shippori Mincho', serif;
+      --font-sans: 'Noto Sans JP', sans-serif;
+
+      --ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    /* === BASE === */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-sans);
+      color: var(--c-text);
+      background-color: var(--c-bg);
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c5a059' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      overflow-x: hidden;
+      line-height: 1.8;
+    }
+
+    /* === UTILITIES === */
+    a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+    img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; }
+    
+    /* 縦書きユーティリティ */
+    .tategaki {
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+      letter-spacing: 0.15em;
+      font-family: var(--font-serif);
+    }
+    
+    /* フェードインアニメーション */
+    .fade-in-up { opacity: 0; transform: translateY(40px); transition: opacity 1s var(--ease-out), transform 1s var(--ease-out); }
+    .fade-in-up.is-visible { opacity: 1; transform: translateY(0); }
+
+    /* === HEADER === */
+    .header {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+      padding: 20px 0;
+      transition: background 0.4s ease, padding 0.4s ease;
+    }
+    .header.is-scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 10px 0;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+    }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .brand-logo svg { width: 32px; height: 32px; fill: var(--c-red); }
+    .brand-text { font-family: var(--font-serif); font-weight: 700; font-size: 1.2rem; letter-spacing: 0.05em; }
+    
+    .header-btn {
+      background: var(--c-black); color: #fff;
+      padding: 10px 24px; border-radius: 50px;
+      font-size: 0.9rem; font-weight: 500;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .header-btn:hover { background: var(--c-red); transform: translateY(-2px); }
+
+    /* === HERO SECTION: 暁の決意 === */
+    .hero {
+      height: 100vh; min-height: 700px;
+      position: relative;
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      /* 夜明け、光、希望を感じる画像 */
+      background-image: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop');
+      background-size: cover; background-position: center;
+      z-index: 0;
+      animation: kenburns 20s infinite alternate;
+    }
+    @keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.1); } }
+    
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(45deg, rgba(0,0,0,0.4), rgba(94, 26, 26, 0.2));
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      color: #fff;
+      text-align: center;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    
+    .hero-copy-vertical {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 700;
+      line-height: 1.3;
+      text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      margin-bottom: 30px;
+      /* 金色のグラデーションテキスト */
+      background: linear-gradient(to bottom, #fff 30%, var(--c-gold-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-sub {
+      font-family: var(--font-serif);
+      font-size: 1.5rem; letter-spacing: 0.2em;
+      margin-bottom: 2rem; color: var(--c-gold-light);
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(5px);
+      padding: 15px 40px;
+      border-radius: 50px;
+      font-family: var(--font-mincho);
+      font-size: 1.1rem; letter-spacing: 0.1em;
+    }
+
+    /* === CONCEPT: 挑戦の扉 === */
+    .concept {
+      padding: 120px 0;
+      background: white;
+      position: relative;
+    }
+    .concept-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    }
+    .concept-img-wrap {
+      position: relative;
+      height: 500px;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .concept-img-wrap::after {
+      content: ''; position: absolute; top: 20px; left: 20px; right: -20px; bottom: -20px;
+      border: 2px solid var(--c-gold); z-index: -1;
+    }
+    .concept-text { padding-left: 20px; }
+    .section-label {
+      display: block; font-family: var(--font-sans); font-size: 0.8rem; letter-spacing: 0.3em;
+      color: var(--c-red); margin-bottom: 20px; font-weight: 700;
+    }
+    .section-title {
+      font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 30px;
+      line-height: 1.4;
+    }
+    .section-desc {
+      font-size: 1rem; line-height: 2; color: #666; margin-bottom: 40px;
+    }
+
+    /* === SPECIAL PRICE: 26万円均一 === */
+    .special-offer {
+      padding: 120px 0;
+      background: linear-gradient(135deg, #fff5f5 0%, #fff 100%);
+      position: relative;
+    }
+    /* 飾り：水引イメージ */
+    .decoration-line {
+      position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+      background: repeating-linear-gradient(90deg, var(--c-red), var(--c-red) 40px, #fff 40px, #fff 80px);
+    }
+
+    .offer-highlight {
+      text-align: center; margin-bottom: 80px;
+    }
+    .offer-price-circle {
+      width: 260px; height: 260px;
+      margin: 0 auto 30px;
+      background: radial-gradient(circle at 30% 30%, #d90000, #8a0000);
+      border-radius: 50%;
+      color: white;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      box-shadow: 0 20px 50px rgba(179, 0, 0, 0.3);
+      border: 6px solid #fff;
+      position: relative;
+    }
+    .offer-price-circle::before {
+      content: ''; position: absolute; inset: -12px; border: 2px solid var(--c-gold); border-radius: 50%;
+    }
+    .price-main { font-family: var(--font-serif); font-size: 5rem; line-height: 1; font-weight: 700; }
+    .price-sub { font-size: 1.5rem; margin-top: -10px; }
+    
+    .products-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px;
+    }
+    .product-card {
+      background: #fff;
+      position: relative;
+      transition: transform 0.4s var(--ease-out);
+      border-bottom: 4px solid var(--c-gold);
+    }
+    .product-card:hover { transform: translateY(-15px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+    
+    .product-thumb { height: 280px; overflow: hidden; position: relative; }
+    .product-thumb img { transition: transform 0.6s var(--ease-out); }
+    .product-card:hover .product-thumb img { transform: scale(1.1); }
+    
+    .tag-exclusive {
+      position: absolute; top: 0; left: 0;
+      background: var(--c-black); color: var(--c-gold);
+      padding: 8px 20px; font-size: 0.8rem; letter-spacing: 0.1em; font-weight: 700;
+    }
+    
+    .product-body { padding: 30px; text-align: center; }
+    .product-title { font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: 10px; }
+    .product-meta { color: #777; font-size: 0.9rem; margin-bottom: 20px; display: block; }
+    .btn-arrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      color: var(--c-red); font-weight: 700; letter-spacing: 0.1em;
+    }
+    .btn-arrow svg { transition: transform 0.3s ease; }
+    .btn-arrow:hover svg { transform: translateX(5px); }
+
+    /* === PREMIUM BENEFITS: 松竹梅 === */
+    .benefits {
+      padding: 120px 0;
+      background: #fff;
+    }
+    .sho-chiku-bai {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;
+      margin-top: 60px;
+    }
+    .rank-card {
+      background: #fdfdfd;
+      padding: 40px 30px;
+      border: 1px solid #eee;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .rank-card:hover { border-color: var(--c-gold); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+    
+    .rank-char {
+      font-family: var(--font-serif); font-size: 4rem; color: #f0f0f0;
+      position: absolute; top: -10px; right: -10px; line-height: 1;
+      z-index: 0; font-weight: 900;
+    }
+    .rank-card.matsu .rank-char { color: #e8f5e9; } /* 松の背景色 */
+    .rank-card.take .rank-char { color: #f1f8e9; } /* 竹の背景色 */
+    .rank-card.ume .rank-char { color: #fce4ec; } /* 梅の背景色 */
+
+    .rank-header { position: relative; z-index: 1; margin-bottom: 20px; }
+    .rank-icon {
+      width: 60px; height: 60px; margin: 0 auto 20px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      color: white; font-family: var(--font-serif); font-size: 1.5rem;
+    }
+    .rank-card.matsu .rank-icon { background: #2e7d32; }
+    .rank-card.take .rank-icon { background: #689f38; }
+    .rank-card.ume .rank-icon { background: #d81b60; }
+
+    .rank-items-list {
+      list-style: none; margin-top: 20px; position: relative; z-index: 1; text-align: left;
+    }
+    .rank-items-list li {
+      padding: 10px 0; border-bottom: 1px dashed #ddd; font-weight: 500;
+    }
+    .rank-items-list li:last-child { border-bottom: none; }
+
+    /* === GACHA: 遊び心 === */
+    .gacha-section {
+      padding: 80px 0;
+      background: url('https://www.transparenttextures.com/patterns/gold-scale.png'), linear-gradient(to bottom, #fff, #fff8e1);
+      text-align: center;
+      border-top: 1px solid var(--c-gold-light);
+      border-bottom: 1px solid var(--c-gold-light);
+    }
+    .gacha-balls-visual {
+      display: flex; justify-content: center; gap: 20px; margin: 40px 0;
+    }
+    .ball {
+      width: 100px; height: 100px; border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #fff, #ccc);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-family: var(--font-serif); font-size: 1.5rem;
+      position: relative;
+    }
+    .ball.gold { background: radial-gradient(circle at 30% 30%, #ffeb3b, #fbc02d); color: #5d4037; }
+    .ball.silver { background: radial-gradient(circle at 30% 30%, #f5f5f5, #bdbdbd); color: #424242; }
+    .ball.bronze { background: radial-gradient(circle at 30% 30%, #ffccbc, #d84315); color: #fff; }
+    
+    /* === ACCESS & FOOTER === */
+    .access-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+      background: #fff;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.05);
+    }
+    .access-info { padding: 60px; }
+    .access-map { height: 100%; min-height: 400px; background: #eee; }
+
+    footer {
+      background: var(--c-black); color: #888; padding: 60px 0 120px; /* Bottom padding for sticky bar */
+      text-align: center; font-size: 0.9rem;
+    }
+
+    /* === STICKY CONVERSION BAR === */
+    .sticky-bar {
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+      width: 94%; max-width: 500px;
+      background: rgba(26, 26, 26, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 10px 15px;
+      border-radius: 60px;
+      display: flex; justify-content: space-between; align-items: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      z-index: 999;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .sticky-item {
+      flex: 1; text-align: center; color: #fff; font-size: 0.8rem;
+      display: flex; flex-direction: column; align-items: center; gap: 4px;
+    }
+    .sticky-cta {
+      flex: 1.5;
+      background: var(--c-red); color: #fff;
+      padding: 12px 0; border-radius: 30px;
+      font-weight: 700; margin: 0 10px;
+      box-shadow: 0 4px 15px rgba(179, 0, 0, 0.4);
+      transition: transform 0.2s;
+    }
+    .sticky-cta:active { transform: scale(0.95); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-copy-vertical { font-size: 2.5rem; writing-mode: horizontal-tb; margin-bottom: 10px;}
+      .concept-inner { grid-template-columns: 1fr; gap: 30px; }
+      .sho-chiku-bai { grid-template-columns: 1fr; }
+      .access-grid { grid-template-columns: 1fr; }
+      .access-info { padding: 40px 20px; }
+      .offer-price-circle { width: 200px; height: 200px; }
+      .price-main { font-size: 3.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="brand-logo">
+           <!-- ピアノアイコンSVG -->
+           <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v16l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9 11H7V6h2v5zm4 0h-2V6h2v5zm4 0h-2V6h2v5z"/></svg>
+        </div>
+        <span class="brand-text">トリイ</span>
+      </div>
+      <a href="#contact" class="header-btn">
+        <span>初売り予約</span>
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO: 暁（AKATSUKI） -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    
+    <div class="hero-content fade-in-up">
+      <span class="hero-badge">謹賀新年 2026</span>
+      <h1 class="hero-copy-vertical">
+        新しい扉を、<br>
+        音色と共に。
+      </h1>
+      <p class="hero-sub">新春 初売りピアノフェア</p>
+      <p style="margin-top:20px; font-weight:500; letter-spacing:0.1em;">2026.1.4 START</p>
+    </div>
+    
+    <!-- スクロールダウン -->
+    <div style="position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.6); font-size: 0.8rem; animation: bounce 2s infinite;">
+      SCROLL
+      <style>@keyframes bounce { 0%,100%{transform:translate(-50%,0);} 50%{transform:translate(-50%,10px);} }</style>
+    </div>
+  </section>
+
+  <!-- CONCEPT: 挑戦の扉 -->
+  <section class="concept">
+    <div class="container concept-inner">
+      <div class="concept-text fade-in-up">
+        <span class="section-label">CONCEPT</span>
+        <h2 class="section-title">未開の地へ踏み出す<br>勇気を、あなたに。</h2>
+        <p class="section-desc">
+          新しい年、新しい自分。<br>
+          ピアノを始めること、それは未知なる世界への挑戦です。<br>
+          創業130年のトリイが選りすぐった一台は、<br>
+          あなたの背中を押し、人生を豊かに彩るパートナーとなるでしょう。<br>
+          さあ、音楽のある新しい毎日へ、扉を開けましょう。
+        </p>
+      </div>
+      <div class="concept-img-wrap fade-in-up" style="transition-delay: 0.2s;">
+        <!-- 扉が開くような、光が差し込むイメージ画像 -->
+        <img src="https://images.unsplash.com/photo-1516539704994-b47a5930282b?q=80&w=1000&auto=format&fit=crop" alt="光が差し込む部屋">
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECIAL OFFER: 26万円均一 -->
+  <section class="special-offer" id="special">
+    <div class="decoration-line"></div>
+    <div class="container">
+      
+      <div class="offer-highlight fade-in-up">
+        <h2 class="section-title" style="margin-bottom: 40px;">新春 特別プライス</h2>
+        <div class="offer-price-circle">
+          <span style="font-size: 1.2rem; letter-spacing: 0.1em;">2026年記念</span>
+          <div class="price-main">26<span style="font-size: 2rem;">万円</span></div>
+          <span class="price-sub">(税込)</span>
+        </div>
+        <p style="color: #666;">新春だけの特別企画。各1台限りの早い者勝ちです。</p>
+      </div>
+
+      <div class="products-grid">
+        <!-- 商品1 -->
+        <div class="product-card fade-in-up">
+          <span class="tag-exclusive">限定1台</span>
+          <div class="product-thumb">
+            <!-- ダミー: UX画像 -->
+            <img src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?q=80&w=600&auto=format&fit=crop" alt="YAMAHA UX">
+          </div>
+          <div class="product-body">
+            <h3 class="product-title">YAMAHA UX</h3>
+            <span class="product-meta">X支柱モデル / 高さ131cm</span>
+            <a href="#contact" class="btn-arrow">
+              在庫を確認する 
+              <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+          </div>
+        </div>
+        
+        <!-- 商品2 -->
+        <div class="product-card fade-in-up" style="transition-delay: 0.1s;">
+          <span class="tag-exclusive">限定1台</span>
+          <div class="product-thumb">
+            <!-- ダミー: U3H画像 -->
+            <img src="https://images.unsplash.com/photo-1623933732649-075596629445?q=80&w=600&auto=format&fit=crop" alt="YAMAHA U3H">
+          </div>
+          <div class="product-body">
+            <h3 class="product-title">YAMAHA U3H</h3>
+            <span class="product-meta">ベストセラー / 豊かな響き</span>
+            <a href="#contact" class="btn-arrow">
+              在庫を確認する 
+              <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 商品3 -->
+        <div class="product-card fade-in-up" style="transition-delay: 0.2s;">
+          <span class="tag-exclusive">限定1台</span>
+          <div class="product-thumb">
+            <!-- ダミー: U10A画像 -->
+            <img src="https://images.unsplash.com/photo-1591542267623-5e0454858d74?q=80&w=600&auto=format&fit=crop" alt="YAMAHA U10A">
+          </div>
+          <div class="product-body">
+            <h3 class="product-title">YAMAHA U10A</h3>
+            <span class="product-meta">高年式 / スタンダード</span>
+            <a href="#contact" class="btn-arrow">
+              在庫を確認する 
+              <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <p style="text-align:center; margin-top:30px; font-size:0.8rem; opacity:0.6;">※上記3モデルは新春プレミアム特典対象外となります。</p>
+    </div>
+  </section>
+
+  <!-- BENEFITS: 松竹梅特典 -->
+  <section class="benefits">
+    <div class="container">
+      <div style="text-align:center;" class="fade-in-up">
+        <span class="section-label">PREMIUM BENEFITS</span>
+        <h2 class="section-title">選べる歓び、<br>新春プレミアム特典。</h2>
+      </div>
+
+      <div class="sho-chiku-bai">
+        <!-- 松 -->
+        <div class="rank-card matsu fade-in-up">
+          <div class="rank-char">松</div>
+          <div class="rank-header">
+            <div class="rank-icon">松</div>
+            <h3>最高級の安心</h3>
+          </div>
+          <p style="font-size:0.9rem; color:#666; margin-bottom:15px;">以下より1点お選びください (上限3万円)</p>
+          <ul class="rank-items-list">
+            <li>納品据え付け料金 無料</li>
+            <li>高級ピアノマット</li>
+          </ul>
+        </div>
+        
+        <!-- 竹 -->
+        <div class="rank-card take fade-in-up" style="transition-delay: 0.1s;">
+          <div class="rank-char">竹</div>
+          <div class="rank-header">
+            <div class="rank-icon">竹</div>
+            <h3>演奏を快適に</h3>
+          </div>
+          <p style="font-size:0.9rem; color:#666; margin-bottom:15px;">以下より1点お選びください (上限1万円)</p>
+          <ul class="rank-items-list">
+            <li>ピアノ椅子</li>
+            <li>踏み台 (足台)</li>
+            <li>吉澤ギフト券 1万円分</li>
+          </ul>
+        </div>
+        
+        <!-- 梅 -->
+        <div class="rank-card ume fade-in-up" style="transition-delay: 0.2s;">
+          <div class="rank-char">梅</div>
+          <div class="rank-header">
+            <div class="rank-icon">梅</div>
+            <h3>レッスンの友</h3>
+          </div>
+          <p style="font-size:0.9rem; color:#666; margin-bottom:15px;">以下より1点お選びください</p>
+          <ul class="rank-items-list">
+            <li>メトロノーム</li>
+            <li>フィンガード</li>
+            <li>吉澤ギフト券 5千円分</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 基本特典 -->
+      <div style="background: var(--c-black); color: white; padding: 40px; margin-top: 60px; border-radius: 4px; text-align: center;" class="fade-in-up">
+        <h4 style="font-family: var(--font-serif); color: var(--c-gold); margin-bottom: 20px;">もれなく付いてくる基本特典</h4>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; font-size: 0.9rem;">
+          <span>✦ 専用トップカバー</span>
+          <span>✦ キーカバー</span>
+          <span>✦ 敷物 or インシュレーター</span>
+          <span>✦ 艶出しワックス</span>
+          <span>✦ お手入れクロス</span>
+          <span>✦ 納入時調律１回</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GACHA: 運試し -->
+  <section class="gacha-section">
+    <div class="container fade-in-up">
+      <h2 class="section-title" style="margin-bottom:10px;">新春 キャッシュバック運試し</h2>
+      <p style="margin-bottom:40px;">ハズレなし！ご成約者様全員にチャンス。</p>
+      
+      <div class="gacha-balls-visual">
+        <div class="ball gold">
+          <div>金<br><span style="font-size:0.8rem">1万円</span></div>
+        </div>
+        <div class="ball silver">
+          <div>銀<br><span style="font-size:0.8rem">5千円</span></div>
+        </div>
+        <div class="ball bronze">
+          <div>銅<br><span style="font-size:0.8rem">3千円</span></div>
+        </div>
+      </div>
+      <p style="font-size:0.9rem; color:#666;">残念賞でもクーポン等のプレゼントをご用意しております。</p>
+    </div>
+  </section>
+
+  <!-- ACCESS -->
+  <section class="access" id="access">
+    <div class="container">
+      <div class="access-grid fade-in-up">
+        <div class="access-info">
+          <span class="section-label">ACCESS</span>
+          <h2 class="section-title">会場・会社概要</h2>
+          <div style="margin-bottom: 30px;">
+            <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 10px;">株式会社トリイ 今津本店</h3>
+            <p>〒520-1621 滋賀県高島市今津町名小路1-1<br>JR湖西線 近江今津駅前すぐ（駐車場完備）</p>
+          </div>
+          <ul style="list-style:none; line-height: 2.2; font-size: 0.95rem;">
+            <li><strong>創業：</strong>1894年（明治27年）</li>
+            <li><strong>事業内容：</strong>楽器・楽譜販売、音楽教室、調律・修理</li>
+            <li><strong>電話：</strong><a href="tel:0740222063" style="border-bottom:1px solid var(--c-black);">0740-22-2063</a></li>
+          </ul>
+          <div style="margin-top: 30px;">
+            <a href="https://www.toriimusic.co.jp/" target="_blank" class="btn-arrow">公式サイトへ</a>
+          </div>
+        </div>
+        <div class="access-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3253.2615735868673!2d136.03148237629133!3d35.37391627268875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600196319b326d8d%3A0x4713241045324383!2z5qCq5byP5Lya56S-44OI44Oq44Kk!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CONTACT AREA (Form Link) -->
+  <section id="contact" style="padding: 80px 0; text-align:center; background: #fcfaf8;">
+      <div class="container fade-in-up">
+          <h2 class="section-title">ご来場予約</h2>
+          <p style="margin-bottom: 30px;">混雑緩和のため、事前の来店予約をお願いいたします。</p>
+          <a href="https://www.toriimusic.co.jp/25682/" style="display:inline-block; background:var(--c-red); color:white; padding:15px 60px; border-radius:50px; font-weight:700; box-shadow: 0 10px 20px rgba(179,0,0,0.3);">予約フォームへ</a>
+      </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 株式会社トリイ. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- STICKY NAV (Mobile Only mostly) -->
+  <div class="sticky-bar">
+    <a href="tel:0740222063" class="sticky-item">
+      <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+      電話
+    </a>
+    <a href="https://www.toriimusic.co.jp/25682/" class="sticky-cta">
+      来場予約する
+    </a>
+    <a href="https://lin.ee/Hm79p0k" class="sticky-item">
+      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.6 .5 .5 5.1 .5 10.7c0 5 4.5 9.2 10.5 9.2 .4 0 .8 0 1.2-.1 .5 1.5 1.7 3.3 1.8 3.5 .1 .2 .4 .3 .5 .2 .1 0 .2-.1 .2-.2 0 0 .6-3.5 2.5-5.7 3.6-1.4 5.8-4.2 5.8-7 0-5.6-5.1-10.2-11.5-10.2z"/></svg>
+      LINE
+    </a>
+  </div>
+
+  <script>
+    // Scroll Animation Observer
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+      
+      // Header scroll effect
+      const header = document.querySelector('.header');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          header.classList.add('is-scrolled');
+        } else {
+          header.classList.remove('is-scrolled');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
