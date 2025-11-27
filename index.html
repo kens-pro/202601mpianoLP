@@ -8,7 +8,7 @@
   <title>新春 初売りピアノフェア 2026｜ピアノ専門店トリイ</title>
   <meta name="description" content="滋賀県のピアノ専門店トリイがお届けする「2026年 新春初売りピアノフェア」。26万円均一の特別モデルや松竹梅の選べる成約特典など、新年の幕開けにふさわしい特別な一台をご用意しています。">
   
-  <!-- OGP: SNSシェア用設定 -->
+  <!-- OGP -->
   <meta property="og:title" content="新春 初売りピアノフェア 2026｜ピアノ専門店トリイ">
   <meta property="og:type" content="website">
   <meta property="og:description" content="新しい扉を、音色と共に。創業130年のトリイが贈る新春特別企画。">
@@ -16,7 +16,6 @@
   <meta property="og:site_name" content="ピアノ専門店トリイ">
   <meta property="og:image" content="./image/piano001.jpg">
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="https://placehold.co/32x32/bf0000/ffffff?text=T">
 
   <!-- Fonts -->
@@ -25,12 +24,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;800&family=Zen+Old+Mincho:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
-    /* === VARIABLES: 世界観の定義 === */
+    /* === VARIABLES === */
     :root {
-      /* より深みのある和モダンな配色へ調整 */
       --c-gold: #c5a059;
       --c-gold-light: #f3e3a8;
-      --c-gold-rich: #b8860b; /* 真鍮色 */
+      --c-gold-rich: #b8860b;
       --c-red: #b30000;
       --c-red-dark: #8a0000;
       --c-black: #1a1a1a;
@@ -54,7 +52,6 @@
       font-family: var(--font-sans);
       color: var(--c-text);
       background-color: var(--c-bg);
-      /* 和紙のようなテクスチャ感 */
       background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c5a059' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
       overflow-x: hidden;
       line-height: 1.8;
@@ -66,16 +63,10 @@
     img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; }
     
-    /* アニメーション関連 */
     .fade-in-up { opacity: 0; transform: translateY(30px); transition: opacity 1s var(--ease-out), transform 1s var(--ease-out); }
     .fade-in-up.is-visible { opacity: 1; transform: translateY(0); }
     
-    .tategaki {
-      writing-mode: vertical-rl;
-      text-orientation: upright;
-      letter-spacing: 0.15em;
-      font-family: var(--font-serif);
-    }
+    .text-center { text-align: center; }
 
     /* === HEADER === */
     .header {
@@ -90,87 +81,57 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
     .header-inner { display: flex; justify-content: space-between; align-items: center; }
-    
     .brand { display: flex; align-items: center; gap: 12px; }
     .brand-logo svg { width: 32px; height: 32px; fill: var(--c-red); transition: transform 0.3s; }
-    .brand:hover .brand-logo svg { transform: scale(1.1); }
     .brand-text { font-family: var(--font-serif); font-weight: 700; font-size: 1.25rem; letter-spacing: 0.05em; color: var(--c-black); }
-    
     .header-btn {
       background: var(--c-black); color: #fff;
       padding: 10px 28px; border-radius: 50px;
       font-size: 0.9rem; font-weight: 500; letter-spacing: 0.05em;
       display: flex; align-items: center; gap: 8px;
-      transition: background 0.3s, transform 0.3s;
     }
     .header-btn:hover { background: var(--c-red); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(179,0,0,0.3); }
 
-    /* === HERO SECTION === */
+    /* === HERO === */
     .hero {
-      height: 100vh; min-height: 700px;
-      position: relative;
-      overflow: hidden;
+      height: 100vh; min-height: 700px; position: relative; overflow: hidden;
       display: flex; align-items: center; justify-content: center;
     }
     .hero-bg {
       position: absolute; inset: 0;
       background-image: url('./image/piano001.jpg');
       background-size: cover; background-position: center;
-      z-index: 0;
-      /* 視差効果とゆっくりとした動き */
-      animation: kenburns 24s infinite alternate ease-in-out;
+      z-index: 0; animation: kenburns 24s infinite alternate ease-in-out;
     }
     @keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.15); } }
-    
     .hero-overlay {
       position: absolute; inset: 0;
-      /* ゴールドと赤みを帯びた黒のグラデーションで高級感を演出 */
       background: radial-gradient(circle at center, rgba(0,0,0,0.3) 0%, rgba(20, 0, 0, 0.6) 100%);
       z-index: 1;
     }
-
     .hero-content {
-      position: relative; z-index: 2;
-      color: #fff; text-align: center;
-      display: flex; flex-direction: column; align-items: center;
-      padding: 0 20px;
+      position: relative; z-index: 2; color: #fff; text-align: center;
+      display: flex; flex-direction: column; align-items: center; padding: 0 20px;
     }
-    
     .hero-badge {
-      display: inline-block;
-      border: 1px solid rgba(255,255,255,0.6);
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(8px);
-      padding: 12px 36px;
-      border-radius: 50px;
-      font-family: var(--font-mincho);
-      font-size: 1rem; letter-spacing: 0.2em;
-      margin-bottom: 2rem;
+      display: inline-block; border: 1px solid rgba(255,255,255,0.6);
+      background: rgba(255,255,255,0.15); backdrop-filter: blur(8px);
+      padding: 12px 36px; border-radius: 50px;
+      font-family: var(--font-mincho); font-size: 1rem; letter-spacing: 0.2em; margin-bottom: 2rem;
     }
-
     .hero-copy-vertical {
-      font-family: var(--font-serif);
-      font-size: clamp(2.8rem, 7vw, 5.5rem);
-      font-weight: 700;
-      line-height: 1.3;
-      margin-bottom: 30px;
+      font-family: var(--font-serif); font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 700; line-height: 1.3; margin-bottom: 30px;
       text-shadow: 0 10px 40px rgba(0,0,0,0.6);
-      /* 金属的な光沢感 */
       background: linear-gradient(to bottom, #ffffff 20%, var(--c-gold-light) 80%, #c5a059 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      writing-mode: vertical-rl; text-orientation: upright; letter-spacing: 0.15em;
     }
-
     .hero-sub {
-      font-family: var(--font-serif);
-      font-size: clamp(1rem, 2vw, 1.4rem);
-      letter-spacing: 0.3em; margin-bottom: 1.5rem;
-      color: var(--c-gold-light);
+      font-family: var(--font-serif); font-size: clamp(1rem, 2vw, 1.4rem);
+      letter-spacing: 0.3em; margin-bottom: 1.5rem; color: var(--c-gold-light);
       text-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
-    
-    /* スクロールダウンの矢印 */
     .scroll-down {
       position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
       color: rgba(255,255,255,0.7); font-size: 0.75rem; letter-spacing: 0.2em;
@@ -181,9 +142,9 @@
       background: rgba(255,255,255,0.5); margin: 10px auto 0;
       animation: extendLine 2s infinite;
     }
-    @keyframes extendLine { 0% { transform-origin: top; transform: scaleY(0); } 50% { transform: scaleY(1); } 50.1% { transform-origin: bottom; } 100% { transform-origin: bottom; transform: scaleY(0); } }
+    @keyframes extendLine { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); } 100% { transform: scaleY(0); transform-origin: bottom; } }
 
-    /* === SECTION COMMON === */
+    /* === COMMON TITLES === */
     .section-label {
       display: inline-block; font-family: var(--font-sans); 
       font-size: 0.75rem; letter-spacing: 0.3em; font-weight: 700;
@@ -194,91 +155,128 @@
       font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); 
       margin-bottom: 30px; line-height: 1.4; color: var(--c-black);
     }
-    .section-desc {
-      font-size: 1rem; line-height: 2.2; color: var(--c-text-light); margin-bottom: 40px;
-    }
 
     /* === CONCEPT === */
-    .concept { padding: 120px 0; background: white; position: relative; }
-    .concept-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    
+    .concept { padding: 100px 0; background: white; }
+    .concept-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
     .concept-img-wrap {
-      position: relative; height: 500px; border-radius: 4px;
-      box-shadow: var(--shadow-soft);
-    }
-    .concept-img-wrap::before {
-      content: ''; position: absolute; inset: 0; border: 1px solid rgba(255,255,255,0.3); z-index: 1; pointer-events: none;
+      position: relative; height: 450px; border-radius: 4px; box-shadow: var(--shadow-soft);
     }
     .concept-img-wrap::after {
       content: ''; position: absolute; top: 20px; left: 20px; right: -20px; bottom: -20px;
       border: 2px solid var(--c-gold); z-index: -1;
     }
+    .section-desc { font-size: 1rem; line-height: 2.2; color: var(--c-text-light); }
 
-    /* === SPECIAL OFFER === */
+    /* === REASONS (NEW) === */
+    .reasons { padding: 100px 0; background: #fdfdfd; }
+    .reasons-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px;
+    }
+    .reason-card {
+      background: white; padding: 40px 30px; border-radius: 8px;
+      text-align: center; border: 1px solid #eee;
+      box-shadow: var(--shadow-soft); transition: transform 0.3s;
+    }
+    .reason-card:hover { transform: translateY(-10px); border-color: var(--c-gold); }
+    .reason-icon {
+      width: 80px; height: 80px; margin: 0 auto 20px;
+      background: var(--c-bg); border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      color: var(--c-gold-rich); border: 1px solid var(--c-gold-light);
+    }
+    .reason-title { font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 15px; color: var(--c-black); }
+    .reason-desc { font-size: 0.9rem; color: var(--c-text-light); line-height: 1.8; }
+
+    /* === SPECIAL OFFER (26万円) === */
     .special-offer {
       padding: 120px 0;
       background: linear-gradient(135deg, #fffcfc 0%, #fff 100%);
       position: relative;
     }
-    /* 水引風デコレーション */
     .decoration-line {
       position: absolute; top: 0; left: 0; width: 100%; height: 6px;
       background: repeating-linear-gradient(90deg, var(--c-red), var(--c-red) 30px, #fff 30px, #fff 60px, var(--c-gold) 60px, var(--c-gold) 90px, #fff 90px, #fff 120px);
     }
-
-    .offer-highlight { text-align: center; margin-bottom: 80px; }
     .offer-price-circle {
-      width: 280px; height: 280px; margin: 0 auto 30px;
+      width: 260px; height: 260px; margin: 0 auto 30px;
       background: radial-gradient(circle at 30% 30%, #d90000, #960000);
       border-radius: 50%; color: white;
       display: flex; flex-direction: column; justify-content: center; align-items: center;
       box-shadow: 0 25px 60px rgba(179, 0, 0, 0.3);
       border: 8px solid #fff; position: relative;
-      transition: transform 0.5s var(--ease-out);
     }
-    .offer-price-circle:hover { transform: scale(1.05); }
     .offer-price-circle::before {
       content: ''; position: absolute; inset: -14px; border: 2px solid var(--c-gold); border-radius: 50%; opacity: 0.6;
     }
-    .price-main { font-family: var(--font-serif); font-size: 5.5rem; line-height: 1; font-weight: 700; letter-spacing: -0.05em; }
-    .price-sub { font-size: 1.2rem; margin-top: -10px; opacity: 0.9; }
-
-    /* Products Grid */
+    .price-main { font-family: var(--font-serif); font-size: 5rem; line-height: 1; font-weight: 700; }
+    .price-sub { font-size: 1.2rem; margin-top: -5px; }
+    
     .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
     .product-card {
       background: #fff; position: relative;
-      transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+      transition: transform 0.4s var(--ease-out);
       border-bottom: 4px solid var(--c-gold);
       box-shadow: var(--shadow-soft);
     }
     .product-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); }
-    
     .product-thumb { height: 260px; overflow: hidden; position: relative; }
     .product-thumb img { transition: transform 0.8s var(--ease-out); }
     .product-card:hover .product-thumb img { transform: scale(1.08); }
-    
     .tag-exclusive {
       position: absolute; top: 0; left: 0; z-index: 2;
       background: var(--c-black); color: var(--c-gold);
       padding: 6px 18px; font-size: 0.75rem; letter-spacing: 0.1em; font-weight: 700;
     }
-    
     .product-body { padding: 30px; text-align: center; }
-    .product-title { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 8px; color: var(--c-black); }
+    .product-title { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 8px; }
     .product-meta { color: #888; font-size: 0.9rem; margin-bottom: 24px; display: block; }
-    
     .btn-arrow {
       display: inline-flex; align-items: center; gap: 8px;
       color: var(--c-red); font-weight: 700; letter-spacing: 0.05em; font-size: 0.95rem;
-      padding-bottom: 2px; border-bottom: 1px solid transparent;
       transition: all 0.3s;
     }
-    .btn-arrow:hover { border-bottom-color: var(--c-red); }
+    .btn-arrow:hover { color: var(--c-red-dark); }
     .btn-arrow svg { transition: transform 0.3s ease; }
     .btn-arrow:hover svg { transform: translateX(6px); }
 
-    /* === PREMIUM BENEFITS === */
-    .benefits { padding: 120px 0; background: #fff; }
+    /* === DETAILED LIST (NEW) === */
+    .detail-list { padding: 80px 0; background: #fff; }
+    .tabs {
+      display: flex; justify-content: center; margin-bottom: 40px;
+      border-bottom: 1px solid #ddd;
+    }
+    .tab {
+      padding: 15px 40px; font-size: 1.1rem; cursor: pointer;
+      font-family: var(--font-serif); color: #888; border-bottom: 3px solid transparent;
+      transition: all 0.3s;
+    }
+    .tab.active { color: var(--c-red); border-bottom-color: var(--c-red); font-weight: 700; }
+    
+    .tab-content { display: none; animation: fadeIn 0.5s; }
+    .tab-content.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    .piano-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.95rem; }
+    .piano-table th {
+      background: var(--c-bg); color: var(--c-black); font-weight: 700;
+      padding: 15px; text-align: left; border-bottom: 2px solid var(--c-gold);
+      font-family: var(--font-serif);
+    }
+    .piano-table td {
+      padding: 15px; border-bottom: 1px solid #eee; vertical-align: middle;
+    }
+    .piano-table tr:hover { background: #fdfdfd; }
+    .piano-table a { color: var(--c-red); text-decoration: underline; }
+    .stock-badge {
+      display: inline-block; padding: 3px 8px; border-radius: 4px;
+      font-size: 0.75rem; color: #fff; margin-right: 5px;
+    }
+    .bg-red { background: var(--c-red); }
+    .bg-gold { background: var(--c-gold-rich); }
+    .bg-gray { background: #888; }
+
+    /* === BENEFITS (松竹梅) === */
+    .benefits { padding: 100px 0; background: #fff; }
     .sho-chiku-bai {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px;
     }
@@ -287,134 +285,117 @@
       border: 1px solid #eee; position: relative; overflow: hidden; text-align: center;
       transition: all 0.4s ease;
     }
-    .rank-card:hover {
-      border-color: var(--c-gold); box-shadow: var(--shadow-soft); transform: translateY(-5px);
-    }
-    
+    .rank-card:hover { border-color: var(--c-gold); transform: translateY(-5px); }
     .rank-char {
       font-family: var(--font-serif); font-size: 6rem;
       position: absolute; top: -20px; right: -20px; line-height: 1;
-      z-index: 0; font-weight: 900; opacity: 0.5; pointer-events: none;
+      z-index: 0; font-weight: 900; opacity: 0.5;
     }
     .rank-card.matsu .rank-char { color: #edf7ed; }
     .rank-card.take .rank-char { color: #f1f8e9; }
     .rank-card.ume .rank-char { color: #fce4ec; }
-
-    .rank-header { position: relative; z-index: 1; margin-bottom: 25px; }
     .rank-icon {
       width: 64px; height: 64px; margin: 0 auto 20px;
       border-radius: 50%; display: flex; align-items: center; justify-content: center;
       color: white; font-family: var(--font-serif); font-size: 1.6rem;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      position: relative; z-index: 1;
     }
-    .rank-card.matsu .rank-icon { background: linear-gradient(135deg, #2e7d32, #1b5e20); }
-    .rank-card.take .rank-icon { background: linear-gradient(135deg, #7cb342, #558b2f); }
-    .rank-card.ume .rank-icon { background: linear-gradient(135deg, #d81b60, #ad1457); }
-
-    .rank-header h3 { font-family: var(--font-serif); font-size: 1.4rem; color: var(--c-black); }
-
+    .rank-card.matsu .rank-icon { background: #2e7d32; }
+    .rank-card.take .rank-icon { background: #7cb342; }
+    .rank-card.ume .rank-icon { background: #d81b60; }
+    .rank-header { position: relative; z-index: 1; margin-bottom: 25px; }
     .rank-items-list { list-style: none; margin-top: 25px; position: relative; z-index: 1; text-align: left; }
     .rank-items-list li {
-      padding: 12px 0; border-bottom: 1px dashed #ddd; font-weight: 500; font-size: 0.95rem; display: flex; align-items: center;
+      padding: 10px 0; border-bottom: 1px dashed #ddd; font-weight: 500; font-size: 0.9rem;
     }
-    .rank-items-list li::before { content: '✔'; color: var(--c-gold-rich); margin-right: 8px; font-size: 0.8em; }
-    .rank-items-list li:last-child { border-bottom: none; }
-
-    /* 基本特典 */
-    .benefits-basic {
-      background: var(--c-black); color: white; padding: 50px 40px; 
-      margin-top: 60px; border-radius: 4px; text-align: center;
-      position: relative; overflow: hidden;
-    }
-    .benefits-basic::before {
-      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
-      background: linear-gradient(90deg, var(--c-gold), var(--c-gold-light), var(--c-gold));
-    }
-    .benefits-grid {
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 20px 40px; font-size: 0.95rem;
-    }
-    .benefits-grid span { display: flex; align-items: center; gap: 6px; }
-    .benefits-grid span::before { content: '✦'; color: var(--c-gold); }
+    .rank-items-list li::before { content: '✔'; color: var(--c-gold-rich); margin-right: 8px; }
 
     /* === GACHA === */
     .gacha-section {
-      padding: 100px 0;
+      padding: 80px 0;
       background: url('https://www.transparenttextures.com/patterns/gold-scale.png'), linear-gradient(to bottom, #fff, #fffde7);
       text-align: center;
       border-top: 1px solid var(--c-gold-light); border-bottom: 1px solid var(--c-gold-light);
     }
-    .gacha-balls-visual { display: flex; justify-content: center; gap: 30px; margin: 50px 0; flex-wrap: wrap;}
+    .gacha-balls-visual { display: flex; justify-content: center; gap: 30px; margin: 40px 0; }
     .ball {
-      width: 110px; height: 110px; border-radius: 50%;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.15), inset -5px -5px 15px rgba(0,0,0,0.1);
+      width: 100px; height: 100px; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-family: var(--font-serif); font-size: 1.6rem;
-      position: relative; transition: transform 0.3s;
+      font-weight: 700; font-family: var(--font-serif); font-size: 1.5rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
     }
-    .ball:hover { transform: translateY(-5px) rotate(10deg); }
-    .ball.gold { background: radial-gradient(circle at 35% 35%, #fff176, #fbc02d); color: #5d4037; border: 2px solid #fff9c4; }
-    .ball.silver { background: radial-gradient(circle at 35% 35%, #f5f5f5, #bdbdbd); color: #424242; border: 2px solid #fff; }
-    .ball.bronze { background: radial-gradient(circle at 35% 35%, #ffccbc, #d84315); color: #fff; border: 2px solid #ffab91; }
+    .ball.gold { background: radial-gradient(circle at 35% 35%, #fff176, #fbc02d); color: #5d4037; }
+    .ball.silver { background: radial-gradient(circle at 35% 35%, #f5f5f5, #bdbdbd); color: #424242; }
+    .ball.bronze { background: radial-gradient(circle at 35% 35%, #ffccbc, #d84315); color: #fff; }
 
-    /* === ACCESS & CONTACT === */
+    /* === STAFF (NEW) === */
+    .staff-section { padding: 100px 0; background: #fff; }
+    .staff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 50px; }
+    .staff-card { text-align: center; }
+    .staff-img {
+      width: 140px; height: 140px; border-radius: 50%; margin: 0 auto 20px;
+      border: 3px solid var(--c-gold); padding: 4px; object-fit: cover;
+    }
+    .staff-role { font-size: 0.8rem; color: var(--c-red); letter-spacing: 0.1em; font-weight: 700; margin-bottom: 5px; }
+    .staff-name { font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 15px; font-weight: 700; }
+    .staff-msg { font-size: 0.9rem; color: var(--c-text-light); line-height: 1.8; text-align: left; }
+
+    /* === EVENT OUTLINE (NEW) === */
+    .event-outline {
+      background: var(--c-black); color: white; padding: 60px 0;
+      text-align: center;
+    }
+    .outline-box {
+      border: 1px solid var(--c-gold); padding: 40px; max-width: 800px; margin: 0 auto;
+      background: rgba(255,255,255,0.05);
+    }
+    .outline-title { font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 30px; color: var(--c-gold); }
+    .outline-row {
+      display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; font-size: 1.1rem;
+    }
+    .outline-item strong { display: block; font-size: 0.8rem; color: #888; margin-bottom: 5px; }
+
+    /* === ACCESS === */
     .access-grid {
       display: grid; grid-template-columns: 1fr 1fr; gap: 0;
-      background: #fff; box-shadow: var(--shadow-soft); margin-bottom: 0;
+      background: #fff; box-shadow: var(--shadow-soft);
     }
-    .access-info { padding: 60px; display: flex; flex-direction: column; justify-content: center; }
+    .access-info { padding: 60px; }
     .access-map { min-height: 450px; background: #eee; }
 
     /* === STICKY BAR === */
     .sticky-bar {
-      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
       width: 92%; max-width: 480px;
       background: rgba(26, 26, 26, 0.92);
-      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
       padding: 10px 15px; border-radius: 100px;
       display: flex; justify-content: space-between; align-items: center;
       box-shadow: 0 10px 40px rgba(0,0,0,0.25);
       z-index: 999; border: 1px solid rgba(255,255,255,0.15);
-      transition: transform 0.3s ease;
     }
-    .sticky-bar.is-hidden { transform: translate(-50%, 150%); }
-    
     .sticky-item {
       flex: 1; text-align: center; color: #fff; font-size: 0.75rem;
       display: flex; flex-direction: column; align-items: center; gap: 4px;
-      opacity: 0.9; transition: opacity 0.3s;
     }
-    .sticky-item:hover { opacity: 1; }
-    
     .sticky-cta {
-      flex: 1.8;
-      background: linear-gradient(135deg, var(--c-red), var(--c-red-dark));
+      flex: 1.8; background: var(--c-red);
       color: #fff; padding: 14px 0; border-radius: 50px;
       font-weight: 700; margin: 0 12px; font-size: 0.9rem;
-      box-shadow: 0 5px 20px rgba(179, 0, 0, 0.4);
-      transition: transform 0.2s;
       text-align: center;
     }
-    .sticky-cta:active { transform: scale(0.96); }
 
     footer { background: var(--c-black); color: #888; padding: 80px 0 140px; text-align: center; font-size: 0.85rem; }
 
-    /* === RESPONSIVE === */
+    /* RESPONSIVE */
     @media (max-width: 900px) {
-      .hero-copy-vertical { font-size: 3.5rem; writing-mode: horizontal-tb; margin-bottom: 20px; }
-      .concept-inner { grid-template-columns: 1fr; gap: 40px; }
-      .concept-text { padding-left: 0; }
-      .concept-img-wrap { height: 350px; }
-      .sho-chiku-bai { grid-template-columns: 1fr; max-width: 500px; margin-left: auto; margin-right: auto; }
-      .access-grid { grid-template-columns: 1fr; }
-      .access-info { padding: 40px 24px; }
-      .access-map { height: 350px; min-height: auto; }
-    }
-    
-    @media (max-width: 480px) {
-      .hero-copy-vertical { font-size: 2.5rem; }
-      .price-main { font-size: 4rem; }
+      .hero-copy-vertical { font-size: 3rem; writing-mode: horizontal-tb; }
+      .concept-inner, .sho-chiku-bai, .staff-grid, .reasons-grid, .access-grid { grid-template-columns: 1fr; gap: 40px; }
+      .concept-img-wrap { height: 300px; }
+      .piano-table { font-size: 0.8rem; }
+      .piano-table th, .piano-table td { padding: 10px; }
       .offer-price-circle { width: 220px; height: 220px; }
-      .sticky-bar { bottom: 15px; width: 95%; }
+      .price-main { font-size: 4rem; }
     }
   </style>
 </head>
@@ -425,7 +406,6 @@
     <div class="container header-inner">
       <div class="brand">
         <div class="brand-logo">
-           <!-- ピアノアイコンSVG -->
            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v16l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9 11H7V6h2v5zm4 0h-2V6h2v5zm4 0h-2V6h2v5z"/></svg>
         </div>
         <span class="brand-text">トリイ</span>
@@ -437,11 +417,10 @@
     </div>
   </header>
 
-  <!-- HERO: 暁（AKATSUKI） -->
+  <!-- HERO: 暁 -->
   <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
-    
     <div class="hero-content fade-in-up">
       <span class="hero-badge">謹賀新年 2026</span>
       <h1 class="hero-copy-vertical">
@@ -451,11 +430,10 @@
       <p class="hero-sub">新春 初売りピアノフェア</p>
       <p style="margin-top:15px; font-weight:500; letter-spacing:0.15em; font-family:var(--font-mincho);">2026.1.4 START</p>
     </div>
-    
     <div class="scroll-down">SCROLL</div>
   </section>
 
-  <!-- CONCEPT: 挑戦の扉 -->
+  <!-- CONCEPT -->
   <section class="concept">
     <div class="container concept-inner">
       <div class="concept-text fade-in-up">
@@ -465,8 +443,7 @@
           新しい年、新しい自分。<br>
           ピアノを始めること、それは未知なる世界への挑戦です。<br>
           創業130年のトリイが選りすぐった一台は、<br>
-          あなたの背中を押し、人生を豊かに彩るパートナーとなるでしょう。<br>
-          さあ、音楽のある新しい毎日へ、扉を開けましょう。
+          あなたの背中を押し、人生を豊かに彩るパートナーとなるでしょう。
         </p>
       </div>
       <div class="concept-img-wrap fade-in-up" style="transition-delay: 0.2s;">
@@ -475,11 +452,53 @@
     </div>
   </section>
 
+  <!-- ★移植セクション 1: なぜトリイが選ばれるのか (デザイン調整) -->
+  <section class="reasons">
+    <div class="container fade-in-up">
+      <div class="text-center">
+        <span class="section-label">OUR PRIDE</span>
+        <h2 class="section-title">トリイが選ばれる<br>３つの理由</h2>
+      </div>
+      
+      <div class="reasons-grid">
+        <!-- 理由1 -->
+        <div class="reason-card">
+          <div class="reason-icon">
+            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="reason-title">創業130年の信頼</h3>
+          <p class="reason-desc">
+            明治27年創業。地域に根ざした長年の実績と、安心のアフターサポートをお約束します。
+          </p>
+        </div>
+        <!-- 理由2 -->
+        <div class="reason-card">
+          <div class="reason-icon">
+             <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="reason-title">豊富な品揃え</h3>
+          <p class="reason-desc">
+            県内最大級の展示数。約30台のピアノ・エレクトーンを常時展示し、最適な一台をご提案します。
+          </p>
+        </div>
+        <!-- 理由3 -->
+        <div class="reason-card">
+          <div class="reason-icon">
+             <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m5.231 13.481L15 17.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="reason-title">無料試弾＆プロ相談</h3>
+          <p class="reason-desc">
+            納得いくまで試弾OK。経験豊富な専門スタッフと技術者が、丁寧にご案内します。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- SPECIAL OFFER: 26万円均一 -->
   <section class="special-offer" id="special">
     <div class="decoration-line"></div>
     <div class="container">
-      
       <div class="offer-highlight fade-in-up">
         <h2 class="section-title" style="margin-bottom: 40px;">新春 特別プライス</h2>
         <div class="offer-price-circle">
@@ -494,102 +513,165 @@
         <!-- 商品1 -->
         <div class="product-card fade-in-up">
           <span class="tag-exclusive">限定1台</span>
-          <div class="product-thumb">
-            <img src="image/IMG_8240.JPG" alt="YAMAHA UX">
-          </div>
+          <div class="product-thumb"><img src="image/IMG_8240.JPG" alt="YAMAHA UX"></div>
           <div class="product-body">
             <h3 class="product-title">YAMAHA UX</h3>
             <span class="product-meta">X支柱モデル / 高さ131cm</span>
-            <a href="#contact" class="btn-arrow">
-              在庫を確認する 
-              <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-            </a>
+            <a href="#contact" class="btn-arrow">在庫を確認する<svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
           </div>
         </div>
-        
         <!-- 商品2 -->
         <div class="product-card fade-in-up" style="transition-delay: 0.1s;">
           <span class="tag-exclusive">限定1台</span>
-          <div class="product-thumb">
-            <img src="image/0011.jpg" alt="YAMAHA U3H">
-          </div>
+          <div class="product-thumb"><img src="image/0011.jpg" alt="YAMAHA U3H"></div>
           <div class="product-body">
             <h3 class="product-title">YAMAHA U3H</h3>
             <span class="product-meta">ベストセラー / 豊かな響き</span>
-            <a href="#contact" class="btn-arrow">
-              在庫を確認する 
-              <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-            </a>
+            <a href="#contact" class="btn-arrow">在庫を確認する<svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
           </div>
         </div>
-
         <!-- 商品3 -->
         <div class="product-card fade-in-up" style="transition-delay: 0.2s;">
           <span class="tag-exclusive">限定1台</span>
-          <div class="product-thumb">
-            <img src="image/DSC_0100.jpg" alt="YAMAHA U10A">
-          </div>
+          <div class="product-thumb"><img src="image/DSC_0100.jpg" alt="YAMAHA U10A"></div>
           <div class="product-body">
             <h3 class="product-title">YAMAHA U10A</h3>
             <span class="product-meta">高年式 / スタンダード</span>
-            <a href="#contact" class="btn-arrow">
-              在庫を確認する 
-              <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-            </a>
+            <a href="#contact" class="btn-arrow">在庫を確認する<svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
           </div>
         </div>
       </div>
-      
       <p style="text-align:center; margin-top:40px; font-size:0.8rem; color:#999;">※上記3モデルは新春プレミアム特典対象外となります。</p>
+    </div>
+  </section>
+
+  <!-- ★移植セクション 2: 詳細なピアノリスト -->
+  <section class="detail-list fade-in-up">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-title">詳細ピアノ・リスト</h2>
+        <p class="section-desc">他にも多数の厳選中古ピアノを取り揃えております。</p>
+      </div>
+
+      <div class="tabs">
+        <div class="tab active" data-tab="upright">アップライトピアノ</div>
+        <div class="tab" data-tab="grand">グランドピアノ</div>
+      </div>
+
+      <!-- アップライト -->
+      <div class="tab-content active" id="upright">
+        <div class="table-container">
+          <table class="piano-table">
+            <thead>
+              <tr>
+                <th>メーカー</th><th>品番</th><th>販売価格（税込）</th><th>状態・備考</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ヤマハ</td><td><a href="https://www.toriimusic.co.jp/17206/">U1H</a></td><td>￥308,000</td><td><span class="stock-badge bg-gold">残1台</span></td>
+              </tr>
+              <tr>
+                <td><del>ヤマハ</del></td><td><del><a href="https://www.toriimusic.co.jp/16526/">U1H</a></del></td><td><del>￥319,000</del></td><td><span class="stock-badge bg-gray">売約済</span></td>
+              </tr>
+              <tr>
+                <td>ヤマハ</td><td><a href="https://www.toriimusic.co.jp/14191/">U2H</a></td><td>￥330,000</td><td><span class="stock-badge bg-gold">残1台</span></td>
+              </tr>
+              <tr>
+                <td>ヤマハ</td><td><a href="https://www.toriimusic.co.jp/25885">U10A</a></td><td>￥429,000</td><td><span class="stock-badge bg-gold">残1台</span></td>
+              </tr>
+              <tr>
+                <td>ヤマハ</td><td><a href="https://www.toriimusic.co.jp/15438">U10A</a></td><td>￥440,000</td><td><span class="stock-badge bg-gold">残1台</span></td>
+              </tr>
+              <tr>
+                <td>ヤマハ</td><td><a href="https://www.toriimusic.co.jp/19544">UX1</a></td><td>￥451,000</td><td><span class="stock-badge bg-red">残1台</span> X支柱</td>
+              </tr>
+              <tr>
+                <td>ヤマハ</td><td><a href="https://www.toriimusic.co.jp/20949">UX2</a></td><td>￥462,000</td><td><span class="stock-badge bg-red">残1台</span> X支柱</td>
+              </tr>
+              <tr>
+                <td>ヤマハ</td><td><a href="https://www.toriimusic.co.jp/21563/">U100</a></td><td>￥473,000</td><td><span class="stock-badge bg-red">残1台</span></td>
+              </tr>
+              <tr>
+                <td>ヤマハ</td><td><a href="https://www.toriimusic.co.jp/20951">UX10A</a></td><td>￥638,000</td><td><span class="stock-badge bg-red">残1台</span> X支柱</td>
+              </tr>
+              <tr>
+                <td>ヤマハ</td><td><a href="https://www.toriimusic.co.jp/20528/">U3H</a></td><td>￥363,000</td><td><span class="stock-badge bg-red">残1台</span></td>
+              </tr>
+              <tr>
+                <td>ヤマハ</td><td><a href="https://www.toriimusic.co.jp/25913/">U3M</a></td><td>￥374,000</td><td><span class="stock-badge bg-red">残1台</span></td>
+              </tr>
+              <tr>
+                <td>ヤマハ</td><td><a href="https://www.toriimusic.co.jp/10937/">U3M</a></td><td>￥385,000</td><td><span class="stock-badge bg-red">残1台</span></td>
+              </tr>
+              <tr>
+                <td>ヤマハ</td><td><a href="https://www.toriimusic.co.jp/24582/">UX</a></td><td>￥396,000</td><td><span class="stock-badge bg-red">残1台</span> X支柱 初代</td>
+              </tr>
+              <tr>
+                <td>ヤマハ</td><td><a href="https://www.toriimusic.co.jp/21546/">U3A</a></td><td>￥396,000</td><td><span class="stock-badge bg-gold">残1台</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- グランド -->
+      <div class="tab-content" id="grand">
+        <div class="table-container">
+          <table class="piano-table">
+            <thead>
+              <tr>
+                <th>メーカー</th><th>品番</th><th>販売価格（税込）</th><th>状態・備考</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ヤマハ</td><td>G2E</td><td>￥935,000</td><td><span class="stock-badge bg-red">残1台</span> 奥行173cm</td>
+              </tr>
+              <tr>
+                <td><del>ヤマハ</del></td><td><del><a href="https://www.toriimusic.co.jp/12714/">C3E</a></del></td><td><del>￥1,595,000</del></td><td><span class="stock-badge bg-gray">売約済</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- BENEFITS: 松竹梅特典 -->
   <section class="benefits">
     <div class="container">
-      <div style="text-align:center;" class="fade-in-up">
+      <div class="text-center fade-in-up">
         <span class="section-label">PREMIUM BENEFITS</span>
         <h2 class="section-title">選べる歓び、<br>新春プレミアム特典。</h2>
       </div>
-
       <div class="sho-chiku-bai">
         <!-- 松 -->
         <div class="rank-card matsu fade-in-up">
           <div class="rank-char">松</div>
-          <div class="rank-header">
-            <div class="rank-icon">松</div>
-            <h3>最高級の安心</h3>
-          </div>
-          <p style="font-size:0.9rem; color:#666; margin-bottom:15px;">以下より1点お選びください (上限3万円)</p>
+          <div class="rank-header"><div class="rank-icon">松</div><h3>最高級の安心</h3></div>
+          <p style="font-size:0.9rem; color:#666;">以下より1点お選びください (上限3万円)</p>
           <ul class="rank-items-list">
             <li>納品据え付け料金 無料</li>
             <li>高級ピアノマット</li>
           </ul>
         </div>
-        
         <!-- 竹 -->
         <div class="rank-card take fade-in-up" style="transition-delay: 0.1s;">
           <div class="rank-char">竹</div>
-          <div class="rank-header">
-            <div class="rank-icon">竹</div>
-            <h3>演奏を快適に</h3>
-          </div>
-          <p style="font-size:0.9rem; color:#666; margin-bottom:15px;">以下より1点お選びください (上限1万円)</p>
+          <div class="rank-header"><div class="rank-icon">竹</div><h3>演奏を快適に</h3></div>
+          <p style="font-size:0.9rem; color:#666;">以下より1点お選びください (上限1万円)</p>
           <ul class="rank-items-list">
             <li>ピアノ椅子</li>
             <li>踏み台 (足台)</li>
             <li>吉澤ギフト券 1万円分</li>
           </ul>
         </div>
-        
         <!-- 梅 -->
         <div class="rank-card ume fade-in-up" style="transition-delay: 0.2s;">
           <div class="rank-char">梅</div>
-          <div class="rank-header">
-            <div class="rank-icon">梅</div>
-            <h3>レッスンの友</h3>
-          </div>
-          <p style="font-size:0.9rem; color:#666; margin-bottom:15px;">以下より1点お選びください</p>
+          <div class="rank-header"><div class="rank-icon">梅</div><h3>レッスンの友</h3></div>
+          <p style="font-size:0.9rem; color:#666;">以下より1点お選びください</p>
           <ul class="rank-items-list">
             <li>メトロノーム</li>
             <li>フィンガード</li>
@@ -597,40 +679,77 @@
           </ul>
         </div>
       </div>
-
       <!-- 基本特典 -->
-      <div class="benefits-basic fade-in-up">
-        <h4 style="font-family: var(--font-serif); color: var(--c-gold); font-size:1.4rem; margin-bottom: 30px;">もれなく付いてくる基本特典</h4>
-        <div class="benefits-grid">
-          <span>専用トップカバー</span>
-          <span>キーカバー</span>
-          <span>敷物 or インシュレーター</span>
-          <span>艶出しワックス</span>
-          <span>お手入れクロス</span>
-          <span>納入時調律１回</span>
+      <div style="background:var(--c-black); color:white; padding:40px; margin-top:60px; border-radius:4px; text-align:center;" class="fade-in-up">
+        <h4 style="font-family:var(--font-serif); color:var(--c-gold); margin-bottom:20px;">もれなく付いてくる基本特典</h4>
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px; font-size:0.9rem;">
+          <span>✦ 専用トップカバー</span><span>✦ キーカバー</span><span>✦ 敷物 or インシュレーター</span>
+          <span>✦ 艶出しワックス</span><span>✦ お手入れクロス</span><span>✦ 納入時調律１回</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- GACHA: 運試し -->
+  <!-- GACHA -->
   <section class="gacha-section">
     <div class="container fade-in-up">
       <h2 class="section-title" style="margin-bottom:15px;">新春 キャッシュバック運試し</h2>
       <p style="margin-bottom:40px; color: var(--c-text-light);">ハズレなし！ご成約者様全員にチャンス。</p>
-      
       <div class="gacha-balls-visual">
-        <div class="ball gold">
-          <div>金<br><span style="font-size:0.8rem">1万円</span></div>
+        <div class="ball gold"><div>金<br><span style="font-size:0.8rem">1万円</span></div></div>
+        <div class="ball silver"><div>銀<br><span style="font-size:0.8rem">5千円</span></div></div>
+        <div class="ball bronze"><div>銅<br><span style="font-size:0.8rem">3千円</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ★移植セクション 3: スタッフ紹介 (私たちがお迎えします) -->
+  <section class="staff-section fade-in-up">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label">OUR STAFF</span>
+        <h2 class="section-title">私たちがお迎えします</h2>
+        <p class="section-desc">ピアノ選びは、信頼できるパートナーと共に。</p>
+      </div>
+      <div class="staff-grid">
+        <div class="staff-card">
+          <img src="images/001.jpg" alt="鳥居 保典" class="staff-img">
+          <div class="staff-role">代表取締役</div>
+          <h3 class="staff-name">鳥居 保典</h3>
+          <p class="staff-msg">ピアノは人生を豊かにし、人と人をつなぐ力を持っています。私たちは、その力を信じ、最良の一台をお客様にお届けすることを使命としています。</p>
         </div>
-        <div class="ball silver">
-          <div>銀<br><span style="font-size:0.8rem">5千円</span></div>
+        <div class="staff-card">
+          <img src="images/IMG_8005.jpg" alt="大田 英史" class="staff-img">
+          <div class="staff-role">コンサートチューナー</div>
+          <h3 class="staff-name">大田 英史</h3>
+          <p class="staff-msg">一台一台のピアノが持つ最高の音色を引き出します。メンテナンスや調律のご相談もお任せください。</p>
         </div>
-        <div class="ball bronze">
-          <div>銅<br><span style="font-size:0.8rem">3千円</span></div>
+        <div class="staff-card">
+          <img src="images/IMG_8049.jpg" alt="吉田 健一" class="staff-img">
+          <div class="staff-role">ピアノアドバイザー</div>
+          <h3 class="staff-name">吉田 健一</h3>
+          <p class="staff-msg">お子様の初めてのピアノから専門家のピアノまで、お客様のライフスタイルに合わせた一台を丁寧にご提案します。</p>
         </div>
       </div>
-      <p style="font-size:0.85rem; color:#888;">残念賞でもクーポン等のプレゼントをご用意しております。</p>
+    </div>
+  </section>
+
+  <!-- ★移植セクション 4: セール詳細（開催概要） -->
+  <section class="event-outline fade-in-up">
+    <div class="container">
+      <div class="outline-box">
+        <h3 class="outline-title">新春 初売りピアノフェア 開催概要</h3>
+        <div class="outline-row">
+          <div class="outline-item">
+            <strong>開催日時</strong>
+            2026年1月4日(日)<br>11:00 - 19:00
+          </div>
+          <div class="outline-item">
+            <strong>会場</strong>
+            株式会社トリイ 今津本店<br>（JR近江今津駅前）
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -647,7 +766,6 @@
           </div>
           <ul style="list-style:none; line-height: 2.2; font-size: 0.95rem;">
             <li><strong style="font-weight:600;">創業：</strong>1894年（明治27年）</li>
-            <li><strong style="font-weight:600;">事業内容：</strong>楽器・楽譜販売、音楽教室、調律・修理</li>
             <li><strong style="font-weight:600;">電話：</strong><a href="tel:0740222063" style="border-bottom:1px solid var(--c-black);">0740-22-2063</a></li>
           </ul>
           <div style="margin-top: 35px;">
@@ -661,14 +779,12 @@
     </div>
   </section>
   
-  <!-- CONTACT AREA -->
+  <!-- CONTACT -->
   <section id="contact" style="padding: 100px 0; text-align:center; background: #fcfaf8;">
       <div class="container fade-in-up">
           <h2 class="section-title">ご来場予約</h2>
           <p style="margin-bottom: 40px; color: var(--c-text-light);">混雑緩和のため、事前の来店予約をお願いいたします。<br>皆様のご来場を心よりお待ちしております。</p>
-          <a href="https://www.toriimusic.co.jp/25682/" style="display:inline-block; background:var(--c-red); color:white; padding:18px 70px; border-radius:50px; font-weight:700; box-shadow: 0 15px 30px rgba(179,0,0,0.25); transition: transform 0.2s, box-shadow 0.2s;">
-            予約フォームへ
-          </a>
+          <a href="https://www.toriimusic.co.jp/25682/" style="display:inline-block; background:var(--c-red); color:white; padding:18px 70px; border-radius:50px; font-weight:700; box-shadow: 0 15px 30px rgba(179,0,0,0.25);">予約フォームへ</a>
       </div>
   </section>
 
@@ -685,9 +801,7 @@
       <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
       電話
     </a>
-    <a href="https://www.toriimusic.co.jp/25682/" class="sticky-cta">
-      来場予約する
-    </a>
+    <a href="https://www.toriimusic.co.jp/25682/" class="sticky-cta">来場予約する</a>
     <a href="https://lin.ee/Hm79p0k" class="sticky-item">
       <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.6 .5 .5 5.1 .5 10.7c0 5 4.5 9.2 10.5 9.2 .4 0 .8 0 1.2-.1 .5 1.5 1.7 3.3 1.8 3.5 .1 .2 .4 .3 .5 .2 .1 0 .2-.1 .2-.2 0 0 .6-3.5 2.5-5.7 3.6-1.4 5.8-4.2 5.8-7 0-5.6-5.1-10.2-11.5-10.2z"/></svg>
       LINE
@@ -695,38 +809,31 @@
   </div>
 
   <script>
-    // Scroll Animation Observer
+    // Tab Switching
     document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll('.tab');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+          document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+          tab.classList.add('active');
+          document.getElementById(tab.dataset.tab).classList.add('active');
+        });
+      });
+
+      // Scroll Animation
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-          }
+          if (entry.isIntersecting) entry.target.classList.add('is-visible');
         });
       }, { threshold: 0.1 });
-
       document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
       
-      // Header & Sticky Bar scroll effect
+      // Header Effect
       const header = document.querySelector('.header');
-      const stickyBar = document.querySelector('.sticky-bar');
-      let lastScrollY = window.scrollY;
-
       window.addEventListener('scroll', () => {
-        const currentScrollY = window.scrollY;
-        
-        // Header styling
-        if (currentScrollY > 50) {
-          header.classList.add('is-scrolled');
-        } else {
-          header.classList.remove('is-scrolled');
-        }
-
-        // Sticky Bar Auto Hide (optional UX enhancement)
-        // 下にスクロールしている時はバーを隠すなどの処理を入れることも可能ですが、
-        // 今回は常に表示（CV優先）としています。
-        
-        lastScrollY = currentScrollY;
+        if (window.scrollY > 50) header.classList.add('is-scrolled');
+        else header.classList.remove('is-scrolled');
       });
     });
   </script>
