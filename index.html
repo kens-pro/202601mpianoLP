@@ -17,7 +17,7 @@
   <meta property="og:image" content="./image/piano001.jpg">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="./image/favicon003.png">
+  <link rel="icon" type="image/png" href="./image/favicon002.png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -82,13 +82,14 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
     .header-inner { display: flex; justify-content: space-between; align-items: center; }
+    
     .brand { display: flex; align-items: center; gap: 12px; }
-    .brand-logo img { width: 36px; height: 36px; display: block; }
+    .brand-logo img { width: 40px; height: 40px; display: block; }
     .brand-text { font-family: var(--font-serif); font-weight: 700; font-size: 1.25rem; letter-spacing: 0.05em; color: var(--c-black); }
     
     .header-actions { display: flex; align-items: center; gap: 15px; }
     
-    /* SNS Icons */
+    /* SNS Icons in Header */
     .social-links { display: flex; gap: 10px; }
     .social-link {
       width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
@@ -111,10 +112,7 @@
       height: 100vh; min-height: 700px; position: relative; overflow: hidden;
       display: flex; align-items: center; justify-content: center;
     }
-    /* カルーセルコンテナ */
-    .hero-carousel {
-      position: absolute; inset: 0; z-index: 0;
-    }
+    .hero-carousel { position: absolute; inset: 0; z-index: 0; }
     .hero-slide {
       position: absolute; inset: 0;
       background-size: cover; background-position: center;
@@ -129,7 +127,7 @@
       0% { opacity: 0; transform: scale(1); }
       5% { opacity: 1; }
       33% { opacity: 1; }
-      38% { opacity: 0; transform: scale(1.1); } /* ズームしながらフェードアウト */
+      38% { opacity: 0; transform: scale(1.1); }
       100% { opacity: 0; transform: scale(1.1); }
     }
 
@@ -197,7 +195,7 @@
     }
     .section-desc { font-size: 1rem; line-height: 2.2; color: var(--c-text-light); }
 
-    /* === REASONS (NEW) === */
+    /* === REASONS === */
     .reasons { padding: 100px 0; background: #fdfdfd; }
     .reasons-grid {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px;
@@ -216,7 +214,7 @@
     .reason-title { font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 15px; color: var(--c-black); }
     .reason-desc { font-size: 0.9rem; color: var(--c-text-light); line-height: 1.8; }
 
-    /* === SPECIAL OFFER (26万円) === */
+    /* === SPECIAL OFFER === */
     .special-offer {
       padding: 120px 0;
       background: linear-gradient(135deg, #fffcfc 0%, #fff 100%);
@@ -268,42 +266,6 @@
     .btn-arrow svg { transition: transform 0.3s ease; }
     .btn-arrow:hover svg { transform: translateX(6px); }
 
-    /* === DETAILED LIST (NEW) === */
-    .detail-list { padding: 80px 0; background: #fff; }
-    .tabs {
-      display: flex; justify-content: center; margin-bottom: 40px;
-      border-bottom: 1px solid #ddd;
-    }
-    .tab {
-      padding: 15px 40px; font-size: 1.1rem; cursor: pointer;
-      font-family: var(--font-serif); color: #888; border-bottom: 3px solid transparent;
-      transition: all 0.3s;
-    }
-    .tab.active { color: var(--c-red); border-bottom-color: var(--c-red); font-weight: 700; }
-    
-    .tab-content { display: none; animation: fadeIn 0.5s; }
-    .tab-content.active { display: block; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-    .piano-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.95rem; }
-    .piano-table th {
-      background: var(--c-bg); color: var(--c-black); font-weight: 700;
-      padding: 15px; text-align: left; border-bottom: 2px solid var(--c-gold);
-      font-family: var(--font-serif);
-    }
-    .piano-table td {
-      padding: 15px; border-bottom: 1px solid #eee; vertical-align: middle;
-    }
-    .piano-table tr:hover { background: #fdfdfd; }
-    .piano-table a { color: var(--c-red); text-decoration: underline; }
-    .stock-badge {
-      display: inline-block; padding: 3px 8px; border-radius: 4px;
-      font-size: 0.75rem; color: #fff; margin-right: 5px;
-    }
-    .bg-red { background: var(--c-red); }
-    .bg-gold { background: var(--c-gold-rich); }
-    .bg-gray { background: #888; }
-
     /* === BENEFITS (松竹梅) === */
     .benefits { padding: 100px 0; background: #fff; }
     .sho-chiku-bai {
@@ -339,25 +301,151 @@
     }
     .rank-items-list li::before { content: '✔'; color: var(--c-gold-rich); margin-right: 8px; }
 
-    /* === GACHA === */
+    /* === GACHA (Renewal v2) === */
     .gacha-section {
-      padding: 80px 0;
-      background: url('https://www.transparenttextures.com/patterns/gold-scale.png'), linear-gradient(to bottom, #fff, #fffde7);
+      background-color: #fffcf4;
+      background-image: 
+        radial-gradient(circle at 100% 150%, #fffcf4 24%, #fcefe9 25%, #fcefe9 28%, #fffcf4 29%, #fffcf4 36%, #fcefe9 36%, #fcefe9 40%, transparent 40%, transparent),
+        radial-gradient(circle at 0    150%, #fffcf4 24%, #fcefe9 25%, #fcefe9 28%, #fffcf4 29%, #fffcf4 36%, #fcefe9 36%, #fcefe9 40%, transparent 40%, transparent),
+        radial-gradient(circle at 50%  100%, #fcefe9 10%, #fffcf4 11%, #fffcf4 23%, #fcefe9 24%, #fcefe9 30%, #fffcf4 31%, #fffcf4 43%, #fcefe9 44%, #fcefe9 50%, #fffcf4 51%, #fffcf4 63%, #fcefe9 64%, #fcefe9 71%, transparent 71%, transparent),
+        radial-gradient(circle at 100% 50%, #fcefe9 5%, #fffcf4 6%, #fffcf4 15%, #fcefe9 16%, #fcefe9 20%, #fffcf4 21%, #fffcf4 30%, #fcefe9 31%, #fcefe9 35%, #fffcf4 36%, #fffcf4 45%, #fcefe9 46%, #fcefe9 49%, transparent 50%, transparent),
+        radial-gradient(circle at 0    50%, #fcefe9 5%, #fffcf4 6%, #fffcf4 15%, #fcefe9 16%, #fcefe9 20%, #fffcf4 21%, #fffcf4 30%, #fcefe9 31%, #fcefe9 35%, #fffcf4 36%, #fffcf4 45%, #fcefe9 46%, #fcefe9 49%, transparent 50%, transparent);
+      background-size: 100px 50px;
+      padding: 100px 0;
+      border-top: 4px solid var(--c-red);
+      border-bottom: 4px solid var(--c-gold);
       text-align: center;
-      border-top: 1px solid var(--c-gold-light); border-bottom: 1px solid var(--c-gold-light);
     }
-    .gacha-balls-visual { display: flex; justify-content: center; gap: 30px; margin: 40px 0; }
-    .ball {
-      width: 100px; height: 100px; border-radius: 50%;
+    .gacha-header { margin-bottom: 50px; }
+    .gacha-label {
+      display: inline-block; background: var(--c-red); color: #fff;
+      padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; letter-spacing: 0.1em;
+      margin-bottom: 15px; font-weight: bold;
+    }
+    .gacha-title-main { font-family: var(--font-serif); font-size: 2rem; color: var(--c-black); line-height: 1.4; margin-bottom: 15px; }
+    .gacha-title-big {
+      font-size: 4.5rem; font-weight: 900;
+      background: linear-gradient(to bottom, #ffd700, #b8860b, #8b4500);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      text-shadow: 0 5px 15px rgba(184, 134, 11, 0.3);
+      display: block; margin-top: 5px; letter-spacing: 0.05em;
+    }
+    .gacha-desc { font-size: 1rem; color: #666; }
+    .gacha-content-wrapper {
+      display: flex; justify-content: center; align-items: center; gap: 80px;
+      max-width: 900px; margin: 0 auto;
+    }
+    .gacha-machine-container { flex: 0 0 auto; position: relative; }
+    .machine-body {
+      width: 240px; position: relative;
+      filter: drop-shadow(0 20px 40px rgba(179,0,0,0.2));
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+    .machine-dome {
+      width: 200px; height: 200px; margin: 0 auto;
+      background: rgba(255,255,255,0.4);
+      border: 4px solid rgba(255,255,255,0.8); border-radius: 50%;
+      position: relative; z-index: 2; overflow: hidden;
+      box-shadow: inset 0 0 20px rgba(255,255,255,0.5), 0 0 10px rgba(255,255,255,0.5);
+      backdrop-filter: blur(2px);
+    }
+    .capsule {
+      width: 50px; height: 50px; border-radius: 50%; position: absolute;
+      border: 2px solid rgba(255,255,255,0.5);
+      box-shadow: inset -5px -5px 10px rgba(0,0,0,0.1);
+    }
+    .capsule::after { content:''; position:absolute; top:50%; left:0; width:100%; height:2px; background:rgba(0,0,0,0.1); }
+    .c1 { background: #ffeb3b; top: 60%; left: 20%; transform: rotate(45deg); }
+    .c2 { background: #d90000; top: 40%; left: 50%; transform: rotate(-15deg); }
+    .c3 { background: #4fc3f7; top: 70%; left: 60%; transform: rotate(10deg); }
+    .c4 { background: #fff; top: 30%; left: 20%; transform: rotate(120deg); }
+    .c5 { background: #ff9800; top: 50%; left: -10%; transform: rotate(60deg); }
+    .machine-base {
+      width: 240px; height: 240px; background: var(--c-red);
+      border-radius: 20px 20px 40px 40px; margin-top: -80px; padding-top: 90px;
+      position: relative; z-index: 1;
+      box-shadow: inset -10px -10px 20px rgba(0,0,0,0.2);
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .machine-base::before { content:''; position: absolute; top: 80px; left: 0; width: 100%; height: 10px; background: #fff; }
+    .machine-dial {
+      width: 60px; height: 60px; background: #fff; border-radius: 50%;
+      border: 4px solid #eee; position: relative; box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+    .dial-handle {
+      width: 100%; height: 10px; background: #ccc;
+      position: absolute; top: 50%; left: 0; transform: translateY(-50%) rotate(90deg);
+      border-radius: 5px;
+    }
+    .machine-exit {
+      width: 80px; height: 50px; background: #333;
+      border-radius: 10px 10px 30px 30px; margin-top: 20px; border: 4px solid #555;
+      background-image: linear-gradient(45deg, #333 25%, #444 25%, #444 50%, #333 50%, #333 75%, #444 75%, #444 100%);
+      background-size: 10px 10px;
+    }
+    .ume-deco { position: absolute; font-size: 3rem; animation: bounce 3s infinite; }
+    .u1 { top: -20px; right: -20px; animation-delay: 0.5s; }
+    .u2 { bottom: 20px; left: -30px; font-size: 2rem; }
+    .gacha-prizes {
+      flex: 1; display: flex; flex-direction: column; gap: 20px;
+      text-align: left; max-width: 400px;
+    }
+    .prize-item {
+      display: flex; align-items: center; gap: 20px;
+      background: #fff; padding: 15px 25px; border-radius: 50px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s;
+    }
+    .prize-item:hover { transform: translateX(10px); }
+    .prize-ball {
+      width: 50px; height: 50px; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-family: var(--font-serif); font-size: 1.5rem;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      font-weight: bold; border: 2px solid #fff;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2); flex-shrink: 0;
     }
-    .ball.gold { background: radial-gradient(circle at 35% 35%, #fff176, #fbc02d); color: #5d4037; }
-    .ball.silver { background: radial-gradient(circle at 35% 35%, #f5f5f5, #bdbdbd); color: #424242; }
-    .ball.bronze { background: radial-gradient(circle at 35% 35%, #ffccbc, #d84315); color: #fff; }
+    .gold-ball { background: radial-gradient(circle at 30% 30%, #fff176, #fbc02d); color: #5d4037; }
+    .silver-ball { background: radial-gradient(circle at 30% 30%, #f5f5f5, #bdbdbd); color: #424242; }
+    .bronze-ball { background: radial-gradient(circle at 30% 30%, #ffccbc, #d84315); color: #fff; }
+    .prize-text h4 { font-family: var(--font-serif); margin: 0; font-size: 1.2rem; color: var(--c-black); }
+    .prize-text p { margin: 0; font-size: 0.9rem; color: #888; }
 
-    /* === STAFF (NEW) === */
+    /* === DETAILED LIST === */
+    .detail-list { padding: 80px 0; background: #fff; }
+    .tabs {
+      display: flex; justify-content: center; margin-bottom: 40px;
+      border-bottom: 1px solid #ddd;
+    }
+    .tab {
+      padding: 15px 40px; font-size: 1.1rem; cursor: pointer;
+      font-family: var(--font-serif); color: #888; border-bottom: 3px solid transparent;
+      transition: all 0.3s;
+    }
+    .tab.active { color: var(--c-red); border-bottom-color: var(--c-red); font-weight: 700; }
+    
+    .tab-content { display: none; animation: fadeIn 0.5s; }
+    .tab-content.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    .piano-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.95rem; }
+    .piano-table th {
+      background: var(--c-bg); color: var(--c-black); font-weight: 700;
+      padding: 15px; text-align: left; border-bottom: 2px solid var(--c-gold);
+      font-family: var(--font-serif);
+    }
+    .piano-table td {
+      padding: 15px; border-bottom: 1px solid #eee; vertical-align: middle;
+    }
+    .piano-table tr:hover { background: #fdfdfd; }
+    .piano-table a { color: var(--c-red); text-decoration: underline; }
+    .stock-badge {
+      display: inline-block; padding: 3px 8px; border-radius: 4px;
+      font-size: 0.75rem; color: #fff; margin-right: 5px;
+    }
+    .bg-red { background: var(--c-red); }
+    .bg-gold { background: var(--c-gold-rich); }
+    .bg-gray { background: #888; }
+
+    /* === STAFF === */
     .staff-section { padding: 100px 0; background: #fff; }
     .staff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 50px; }
     .staff-card { text-align: center; }
@@ -369,26 +457,18 @@
     .staff-name { font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 15px; font-weight: 700; }
     .staff-msg { font-size: 0.9rem; color: var(--c-text-light); line-height: 1.8; text-align: left; }
 
-    /* === EVENT OUTLINE (NEW) === */
-    .event-outline {
-      background: var(--c-black); color: white; padding: 60px 0;
-      text-align: center;
-    }
+    /* === EVENT OUTLINE === */
+    .event-outline { background: var(--c-black); color: white; padding: 60px 0; text-align: center; }
     .outline-box {
       border: 1px solid var(--c-gold); padding: 40px; max-width: 800px; margin: 0 auto;
       background: rgba(255,255,255,0.05);
     }
     .outline-title { font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 30px; color: var(--c-gold); }
-    .outline-row {
-      display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; font-size: 1.1rem;
-    }
+    .outline-row { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; font-size: 1.1rem; }
     .outline-item strong { display: block; font-size: 0.8rem; color: #888; margin-bottom: 5px; }
 
     /* === ACCESS === */
-    .access-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
-      background: #fff; box-shadow: var(--shadow-soft);
-    }
+    .access-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; background: #fff; box-shadow: var(--shadow-soft); }
     .access-info { padding: 60px; }
     .access-map { min-height: 450px; background: #eee; }
 
@@ -436,15 +516,16 @@
       .piano-table th, .piano-table td { padding: 10px; }
       .offer-price-circle { width: 220px; height: 220px; }
       .price-main { font-size: 4rem; }
-      .header-actions { display: none; } /* スマホではヘッダー内のSNSアイコン等を隠してシンプルにする場合 */
-      .header-btn { display: flex; } /* ボタンは表示 */
+      .header-actions { display: none; } /* スマホではヘッダーSNSを隠してボタンのみ表示 */
+      .header-btn { display: flex; }
+      
+      /* Gacha Responsive */
+      .gacha-content-wrapper { flex-direction: column; gap: 40px; }
+      .gacha-title-big { font-size: 3.5rem; }
+      .gacha-prizes { width: 100%; }
     }
-    @media (max-width: 900px) {
-        /* ヘッダーのSNSアイコンをスマホでも表示させたい場合はこちらを有効化 */
-        .header-actions { display: flex; gap: 10px; }
-        .social-link { width: 30px; height: 30px; }
-        .social-link svg { width: 14px; height: 14px; }
-        .header-btn { padding: 8px 16px; font-size: 0.8rem; }
+    @media (max-width: 400px) {
+      .header-btn { font-size: 0.8rem; padding: 8px 16px; }
     }
   </style>
 </head>
@@ -455,7 +536,7 @@
     <div class="container header-inner">
       <div class="brand">
         <div class="brand-logo">
-           <img src="./image/favicon003.png" alt="トリイロゴ">
+           <img src="./image/favicon002.png" alt="トリイロゴ">
         </div>
         <span class="brand-text">トリイ</span>
       </div>
@@ -600,6 +681,133 @@
     </div>
   </section>
 
+  <!-- BENEFITS: 松竹梅特典 -->
+  <section class="benefits">
+    <div class="container">
+      <div class="text-center fade-in-up">
+        <span class="section-label">PREMIUM BENEFITS</span>
+        <h2 class="section-title">選べる歓び、<br>新春プレミアム特典。</h2>
+      </div>
+      <div class="sho-chiku-bai">
+        <!-- 松 -->
+        <div class="rank-card matsu fade-in-up">
+          <div class="rank-char">松</div>
+          <div class="rank-header"><div class="rank-icon">松</div><h3>最高級の安心</h3></div>
+          <p style="font-size:0.9rem; color:#666;">以下より1点お選びください (上限3万円)</p>
+          <ul class="rank-items-list">
+            <li>納品据え付け料金 無料</li>
+            <li>高級ピアノマット</li>
+          </ul>
+        </div>
+        <!-- 竹 -->
+        <div class="rank-card take fade-in-up" style="transition-delay: 0.1s;">
+          <div class="rank-char">竹</div>
+          <div class="rank-header"><div class="rank-icon">竹</div><h3>演奏を快適に</h3></div>
+          <p style="font-size:0.9rem; color:#666;">以下より1点お選びください (上限1万円)</p>
+          <ul class="rank-items-list">
+            <li>ピアノ椅子</li>
+            <li>踏み台 (足台)</li>
+            <li>吉澤ギフト券 1万円分</li>
+          </ul>
+        </div>
+        <!-- 梅 -->
+        <div class="rank-card ume fade-in-up" style="transition-delay: 0.2s;">
+          <div class="rank-char">梅</div>
+          <div class="rank-header"><div class="rank-icon">梅</div><h3>レッスンの友</h3></div>
+          <p style="font-size:0.9rem; color:#666;">以下より1点お選びください</p>
+          <ul class="rank-items-list">
+            <li>メトロノーム</li>
+            <li>フィンガード</li>
+            <li>吉澤ギフト券 5千円分</li>
+          </ul>
+        </div>
+      </div>
+      <!-- 基本特典 -->
+      <div style="background:var(--c-black); color:white; padding:40px; margin-top:60px; border-radius:4px; text-align:center;" class="fade-in-up">
+        <h4 style="font-family:var(--font-serif); color:var(--c-gold); margin-bottom:20px;">もれなく付いてくる基本特典</h4>
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px; font-size:0.9rem;">
+          <span>✦ 専用トップカバー</span><span>✦ キーカバー</span><span>✦ 敷物 or インシュレーター</span>
+          <span>✦ 艶出しワックス</span><span>✦ お手入れクロス</span><span>✦ 納入時調律１回</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GACHA (Renewal) -->
+  <section class="gacha-section">
+    <div class="container fade-in-up">
+      <div class="gacha-header">
+        <span class="gacha-label">NEW YEAR LUCK</span>
+        <h2 class="gacha-title-main">新春 キャッシュバック<br><span class="gacha-title-big">大抽選会</span></h2>
+        <p class="gacha-desc">ハズレなし！ご成約者様全員にチャンス。<br>あなたの2026年の運勢は？</p>
+      </div>
+      
+      <div class="gacha-content-wrapper">
+        <div class="gacha-machine-container">
+          <!-- ガチャマシーン本体 (CSSで描画) -->
+          <div class="machine-body">
+            <div class="machine-dome">
+              <!-- ドームの中のカプセルたち -->
+              <div class="capsule c1"></div>
+              <div class="capsule c2"></div>
+              <div class="capsule c3"></div>
+              <div class="capsule c4"></div>
+              <div class="capsule c5"></div>
+            </div>
+            <div class="machine-base">
+              <div class="machine-dial">
+                <div class="dial-handle"></div>
+              </div>
+              <div class="machine-exit"></div>
+            </div>
+            <!-- 装飾：梅の花 -->
+            <div class="ume-deco u1">🌸</div>
+            <div class="ume-deco u2">🌸</div>
+          </div>
+        </div>
+
+        <!-- 説明：カプセルの中身 -->
+        <div class="gacha-prizes">
+          <div class="prize-item gold">
+            <div class="prize-ball gold-ball">
+              <span class="kanji">金</span>
+            </div>
+            <div class="prize-text">
+              <h4>１等：１万円</h4>
+              <p>キャッシュバック</p>
+            </div>
+          </div>
+          <div class="prize-item silver">
+            <div class="prize-ball silver-ball">
+              <span class="kanji">銀</span>
+            </div>
+            <div class="prize-text">
+              <h4>２等：５千円</h4>
+              <p>キャッシュバック</p>
+            </div>
+          </div>
+          <div class="prize-item bronze">
+            <div class="prize-ball bronze-ball">
+              <span class="kanji">銅</span>
+            </div>
+            <div class="prize-text">
+              <h4>３等：３千円</h4>
+              <p>キャッシュバック</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div style="margin-top:40px; text-align: center;">
+        <p style="font-size:0.85rem; color:#888; margin-bottom:20px;">※当日、会場にて実際のガチャガチャを回していただきます。</p>
+        <a href="#contact" class="btn-arrow" style="justify-content:center; color:var(--c-red);">
+          詳しくはお問い合わせください
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- DETAILED LIST -->
   <section class="detail-list fade-in-up">
     <div class="container">
@@ -693,71 +901,6 @@
     </div>
   </section>
 
-  <!-- BENEFITS: 松竹梅特典 -->
-  <section class="benefits">
-    <div class="container">
-      <div class="text-center fade-in-up">
-        <span class="section-label">PREMIUM BENEFITS</span>
-        <h2 class="section-title">選べる歓び、<br>新春プレミアム特典。</h2>
-      </div>
-      <div class="sho-chiku-bai">
-        <!-- 松 -->
-        <div class="rank-card matsu fade-in-up">
-          <div class="rank-char">松</div>
-          <div class="rank-header"><div class="rank-icon">松</div><h3>最高級の安心</h3></div>
-          <p style="font-size:0.9rem; color:#666;">以下より1点お選びください (上限3万円)</p>
-          <ul class="rank-items-list">
-            <li>納品据え付け料金 無料</li>
-            <li>高級ピアノマット</li>
-          </ul>
-        </div>
-        <!-- 竹 -->
-        <div class="rank-card take fade-in-up" style="transition-delay: 0.1s;">
-          <div class="rank-char">竹</div>
-          <div class="rank-header"><div class="rank-icon">竹</div><h3>演奏を快適に</h3></div>
-          <p style="font-size:0.9rem; color:#666;">以下より1点お選びください (上限1万円)</p>
-          <ul class="rank-items-list">
-            <li>ピアノ椅子</li>
-            <li>踏み台 (足台)</li>
-            <li>吉澤ギフト券 1万円分</li>
-          </ul>
-        </div>
-        <!-- 梅 -->
-        <div class="rank-card ume fade-in-up" style="transition-delay: 0.2s;">
-          <div class="rank-char">梅</div>
-          <div class="rank-header"><div class="rank-icon">梅</div><h3>レッスンの友</h3></div>
-          <p style="font-size:0.9rem; color:#666;">以下より1点お選びください</p>
-          <ul class="rank-items-list">
-            <li>メトロノーム</li>
-            <li>フィンガード</li>
-            <li>吉澤ギフト券 5千円分</li>
-          </ul>
-        </div>
-      </div>
-      <!-- 基本特典 -->
-      <div style="background:var(--c-black); color:white; padding:40px; margin-top:60px; border-radius:4px; text-align:center;" class="fade-in-up">
-        <h4 style="font-family:var(--font-serif); color:var(--c-gold); margin-bottom:20px;">もれなく付いてくる基本特典</h4>
-        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px; font-size:0.9rem;">
-          <span>✦ 専用トップカバー</span><span>✦ キーカバー</span><span>✦ 敷物 or インシュレーター</span>
-          <span>✦ 艶出しワックス</span><span>✦ お手入れクロス</span><span>✦ 納入時調律１回</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GACHA -->
-  <section class="gacha-section">
-    <div class="container fade-in-up">
-      <h2 class="section-title" style="margin-bottom:15px;">新春 キャッシュバック運試し</h2>
-      <p style="margin-bottom:40px; color: var(--c-text-light);">ハズレなし！ご成約者様全員にチャンス。</p>
-      <div class="gacha-balls-visual">
-        <div class="ball gold"><div>金<br><span style="font-size:0.8rem">1万円</span></div></div>
-        <div class="ball silver"><div>銀<br><span style="font-size:0.8rem">5千円</span></div></div>
-        <div class="ball bronze"><div>銅<br><span style="font-size:0.8rem">3千円</span></div></div>
-      </div>
-    </div>
-  </section>
-
   <!-- STAFF -->
   <section class="staff-section fade-in-up">
     <div class="container">
@@ -847,7 +990,7 @@
   <footer>
     <div class="container">
       <div class="footer-logo">
-        <img src="./image/favicon003.png" alt="トリイロゴ">
+        <img src="./image/favicon002.png" alt="トリイロゴ">
       </div>
       
       <div class="footer-social">
