@@ -16,7 +16,8 @@
   <meta property="og:site_name" content="ピアノ専門店トリイ">
   <meta property="og:image" content="./image/piano001.jpg">
 
-  <link rel="icon" type="image/png" href="https://placehold.co/32x32/bf0000/ffffff?text=T">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./image/favicon003.png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -71,39 +72,67 @@
     /* === HEADER === */
     .header {
       position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
-      padding: 20px 0;
+      padding: 15px 0;
       transition: background 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
     }
     .header.is-scrolled {
       background: rgba(255, 255, 255, 0.98);
       backdrop-filter: blur(10px);
-      padding: 12px 0;
+      padding: 10px 0;
       box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
     .header-inner { display: flex; justify-content: space-between; align-items: center; }
     .brand { display: flex; align-items: center; gap: 12px; }
-    .brand-logo svg { width: 32px; height: 32px; fill: var(--c-red); transition: transform 0.3s; }
+    .brand-logo img { width: 36px; height: 36px; display: block; }
     .brand-text { font-family: var(--font-serif); font-weight: 700; font-size: 1.25rem; letter-spacing: 0.05em; color: var(--c-black); }
+    
+    .header-actions { display: flex; align-items: center; gap: 15px; }
+    
+    /* SNS Icons */
+    .social-links { display: flex; gap: 10px; }
+    .social-link {
+      width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+      border-radius: 50%; background: rgba(0,0,0,0.05); transition: all 0.3s;
+      color: var(--c-black);
+    }
+    .social-link:hover { background: var(--c-black); color: #fff; transform: translateY(-2px); }
+    .social-link svg { width: 18px; height: 18px; fill: currentColor; }
+
     .header-btn {
       background: var(--c-black); color: #fff;
-      padding: 10px 28px; border-radius: 50px;
+      padding: 10px 24px; border-radius: 50px;
       font-size: 0.9rem; font-weight: 500; letter-spacing: 0.05em;
       display: flex; align-items: center; gap: 8px;
     }
     .header-btn:hover { background: var(--c-red); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(179,0,0,0.3); }
 
-    /* === HERO === */
+    /* === HERO CAROUSEL === */
     .hero {
       height: 100vh; min-height: 700px; position: relative; overflow: hidden;
       display: flex; align-items: center; justify-content: center;
     }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background-image: url('./image/piano001.jpg');
-      background-size: cover; background-position: center;
-      z-index: 0; animation: kenburns 24s infinite alternate ease-in-out;
+    /* カルーセルコンテナ */
+    .hero-carousel {
+      position: absolute; inset: 0; z-index: 0;
     }
-    @keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.15); } }
+    .hero-slide {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      opacity: 0;
+      animation: slideAnimation 18s infinite;
+    }
+    .hero-slide:nth-child(1) { background-image: url('./image/piano001.jpg'); animation-delay: 0s; }
+    .hero-slide:nth-child(2) { background-image: url('./image/★店外観002jpeg.jpg'); animation-delay: 6s; }
+    .hero-slide:nth-child(3) { background-image: url('./image/★店頭ピアノ画像002.jpg'); animation-delay: 12s; }
+
+    @keyframes slideAnimation {
+      0% { opacity: 0; transform: scale(1); }
+      5% { opacity: 1; }
+      33% { opacity: 1; }
+      38% { opacity: 0; transform: scale(1.1); } /* ズームしながらフェードアウト */
+      100% { opacity: 0; transform: scale(1.1); }
+    }
+
     .hero-overlay {
       position: absolute; inset: 0;
       background: radial-gradient(circle at center, rgba(0,0,0,0.3) 0%, rgba(20, 0, 0, 0.6) 100%);
@@ -385,7 +414,18 @@
       text-align: center;
     }
 
+    /* === FOOTER === */
     footer { background: var(--c-black); color: #888; padding: 80px 0 140px; text-align: center; font-size: 0.85rem; }
+    .footer-logo { display: inline-block; margin-bottom: 20px; }
+    .footer-logo img { width: 40px; height: 40px; margin: 0 auto; }
+    .footer-social { display: flex; justify-content: center; gap: 20px; margin-bottom: 30px; }
+    .footer-social-link {
+      width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(255,255,255,0.2); border-radius: 50%;
+      color: #ccc; transition: all 0.3s;
+    }
+    .footer-social-link:hover { background: var(--c-gold); border-color: var(--c-gold); color: #fff; transform: translateY(-3px); }
+    .footer-social-link svg { width: 20px; height: 20px; fill: currentColor; }
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
@@ -396,6 +436,15 @@
       .piano-table th, .piano-table td { padding: 10px; }
       .offer-price-circle { width: 220px; height: 220px; }
       .price-main { font-size: 4rem; }
+      .header-actions { display: none; } /* スマホではヘッダー内のSNSアイコン等を隠してシンプルにする場合 */
+      .header-btn { display: flex; } /* ボタンは表示 */
+    }
+    @media (max-width: 900px) {
+        /* ヘッダーのSNSアイコンをスマホでも表示させたい場合はこちらを有効化 */
+        .header-actions { display: flex; gap: 10px; }
+        .social-link { width: 30px; height: 30px; }
+        .social-link svg { width: 14px; height: 14px; }
+        .header-btn { padding: 8px 16px; font-size: 0.8rem; }
     }
   </style>
 </head>
@@ -406,20 +455,35 @@
     <div class="container header-inner">
       <div class="brand">
         <div class="brand-logo">
-           <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v16l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9 11H7V6h2v5zm4 0h-2V6h2v5zm4 0h-2V6h2v5z"/></svg>
+           <img src="./image/favicon003.png" alt="トリイロゴ">
         </div>
         <span class="brand-text">トリイ</span>
       </div>
-      <a href="#contact" class="header-btn">
-        <span>初売り予約</span>
-        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-      </a>
+      <div class="header-actions">
+        <div class="social-links">
+          <a href="https://www.instagram.com/torii__music/" target="_blank" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://x.com/toriimusic" target="_blank" class="social-link" aria-label="X (Twitter)">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <a href="#contact" class="header-btn">
+          <span>初売り予約</span>
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+      </div>
     </div>
   </header>
 
   <!-- HERO: 暁 -->
   <section class="hero">
-    <div class="hero-bg"></div>
+    <!-- カルーセル背景 -->
+    <div class="hero-carousel">
+      <div class="hero-slide"></div>
+      <div class="hero-slide"></div>
+      <div class="hero-slide"></div>
+    </div>
     <div class="hero-overlay"></div>
     <div class="hero-content fade-in-up">
       <span class="hero-badge">謹賀新年 2026</span>
@@ -452,7 +516,7 @@
     </div>
   </section>
 
-  <!-- ★移植セクション 1: なぜトリイが選ばれるのか (デザイン調整) -->
+  <!-- REASONS -->
   <section class="reasons">
     <div class="container fade-in-up">
       <div class="text-center">
@@ -461,35 +525,26 @@
       </div>
       
       <div class="reasons-grid">
-        <!-- 理由1 -->
         <div class="reason-card">
           <div class="reason-icon">
             <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
           <h3 class="reason-title">創業130年の信頼</h3>
-          <p class="reason-desc">
-            明治27年創業。地域に根ざした長年の実績と、安心のアフターサポートをお約束します。
-          </p>
+          <p class="reason-desc">明治27年創業。地域に根ざした長年の実績と、安心のアフターサポートをお約束します。</p>
         </div>
-        <!-- 理由2 -->
         <div class="reason-card">
           <div class="reason-icon">
              <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
           <h3 class="reason-title">豊富な品揃え</h3>
-          <p class="reason-desc">
-            県内最大級の展示数。約30台のピアノ・エレクトーンを常時展示し、最適な一台をご提案します。
-          </p>
+          <p class="reason-desc">県内最大級の展示数。約30台のピアノ・エレクトーンを常時展示し、最適な一台をご提案します。</p>
         </div>
-        <!-- 理由3 -->
         <div class="reason-card">
           <div class="reason-icon">
              <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m5.231 13.481L15 17.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
           <h3 class="reason-title">無料試弾＆プロ相談</h3>
-          <p class="reason-desc">
-            納得いくまで試弾OK。経験豊富な専門スタッフと技術者が、丁寧にご案内します。
-          </p>
+          <p class="reason-desc">納得いくまで試弾OK。経験豊富な専門スタッフと技術者が、丁寧にご案内します。</p>
         </div>
       </div>
     </div>
@@ -545,72 +600,7 @@
     </div>
   </section>
 
-  <!-- BENEFITS: 松竹梅特典 -->
-  <section class="benefits">
-    <div class="container">
-      <div class="text-center fade-in-up">
-        <span class="section-label">PREMIUM BENEFITS</span>
-        <h2 class="section-title">選べる歓び、<br>新春プレミアム特典。</h2>
-      </div>
-      <div class="sho-chiku-bai">
-        <!-- 松 -->
-        <div class="rank-card matsu fade-in-up">
-          <div class="rank-char">松</div>
-          <div class="rank-header"><div class="rank-icon">松</div><h3>最高級の安心</h3></div>
-          <p style="font-size:0.9rem; color:#666;">以下より1点お選びください (上限3万円)</p>
-          <ul class="rank-items-list">
-            <li>納品据え付け料金 無料</li>
-            <li>高級ピアノマット</li>
-          </ul>
-        </div>
-        <!-- 竹 -->
-        <div class="rank-card take fade-in-up" style="transition-delay: 0.1s;">
-          <div class="rank-char">竹</div>
-          <div class="rank-header"><div class="rank-icon">竹</div><h3>演奏を快適に</h3></div>
-          <p style="font-size:0.9rem; color:#666;">以下より1点お選びください (上限1万円)</p>
-          <ul class="rank-items-list">
-            <li>ピアノ椅子</li>
-            <li>踏み台 (足台)</li>
-            <li>吉澤ギフト券 1万円分</li>
-          </ul>
-        </div>
-        <!-- 梅 -->
-        <div class="rank-card ume fade-in-up" style="transition-delay: 0.2s;">
-          <div class="rank-char">梅</div>
-          <div class="rank-header"><div class="rank-icon">梅</div><h3>レッスンの友</h3></div>
-          <p style="font-size:0.9rem; color:#666;">以下より1点お選びください</p>
-          <ul class="rank-items-list">
-            <li>メトロノーム</li>
-            <li>フィンガード</li>
-            <li>吉澤ギフト券 5千円分</li>
-          </ul>
-        </div>
-      </div>
-      <!-- 基本特典 -->
-      <div style="background:var(--c-black); color:white; padding:40px; margin-top:60px; border-radius:4px; text-align:center;" class="fade-in-up">
-        <h4 style="font-family:var(--font-serif); color:var(--c-gold); margin-bottom:20px;">もれなく付いてくる基本特典</h4>
-        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px; font-size:0.9rem;">
-          <span>✦ 専用トップカバー</span><span>✦ キーカバー</span><span>✦ 敷物 or インシュレーター</span>
-          <span>✦ 艶出しワックス</span><span>✦ お手入れクロス</span><span>✦ 納入時調律１回</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GACHA -->
-  <section class="gacha-section">
-    <div class="container fade-in-up">
-      <h2 class="section-title" style="margin-bottom:15px;">新春 キャッシュバック運試し</h2>
-      <p style="margin-bottom:40px; color: var(--c-text-light);">ハズレなし！ご成約者様全員にチャンス。</p>
-      <div class="gacha-balls-visual">
-        <div class="ball gold"><div>金<br><span style="font-size:0.8rem">1万円</span></div></div>
-        <div class="ball silver"><div>銀<br><span style="font-size:0.8rem">5千円</span></div></div>
-        <div class="ball bronze"><div>銅<br><span style="font-size:0.8rem">3千円</span></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ★移植セクション 2: 詳細なピアノリスト -->
+  <!-- DETAILED LIST -->
   <section class="detail-list fade-in-up">
     <div class="container">
       <div class="text-center">
@@ -703,7 +693,72 @@
     </div>
   </section>
 
-  <!-- ★移植セクション 3: スタッフ紹介 (私たちがお迎えします) -->
+  <!-- BENEFITS: 松竹梅特典 -->
+  <section class="benefits">
+    <div class="container">
+      <div class="text-center fade-in-up">
+        <span class="section-label">PREMIUM BENEFITS</span>
+        <h2 class="section-title">選べる歓び、<br>新春プレミアム特典。</h2>
+      </div>
+      <div class="sho-chiku-bai">
+        <!-- 松 -->
+        <div class="rank-card matsu fade-in-up">
+          <div class="rank-char">松</div>
+          <div class="rank-header"><div class="rank-icon">松</div><h3>最高級の安心</h3></div>
+          <p style="font-size:0.9rem; color:#666;">以下より1点お選びください (上限3万円)</p>
+          <ul class="rank-items-list">
+            <li>納品据え付け料金 無料</li>
+            <li>高級ピアノマット</li>
+          </ul>
+        </div>
+        <!-- 竹 -->
+        <div class="rank-card take fade-in-up" style="transition-delay: 0.1s;">
+          <div class="rank-char">竹</div>
+          <div class="rank-header"><div class="rank-icon">竹</div><h3>演奏を快適に</h3></div>
+          <p style="font-size:0.9rem; color:#666;">以下より1点お選びください (上限1万円)</p>
+          <ul class="rank-items-list">
+            <li>ピアノ椅子</li>
+            <li>踏み台 (足台)</li>
+            <li>吉澤ギフト券 1万円分</li>
+          </ul>
+        </div>
+        <!-- 梅 -->
+        <div class="rank-card ume fade-in-up" style="transition-delay: 0.2s;">
+          <div class="rank-char">梅</div>
+          <div class="rank-header"><div class="rank-icon">梅</div><h3>レッスンの友</h3></div>
+          <p style="font-size:0.9rem; color:#666;">以下より1点お選びください</p>
+          <ul class="rank-items-list">
+            <li>メトロノーム</li>
+            <li>フィンガード</li>
+            <li>吉澤ギフト券 5千円分</li>
+          </ul>
+        </div>
+      </div>
+      <!-- 基本特典 -->
+      <div style="background:var(--c-black); color:white; padding:40px; margin-top:60px; border-radius:4px; text-align:center;" class="fade-in-up">
+        <h4 style="font-family:var(--font-serif); color:var(--c-gold); margin-bottom:20px;">もれなく付いてくる基本特典</h4>
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px; font-size:0.9rem;">
+          <span>✦ 専用トップカバー</span><span>✦ キーカバー</span><span>✦ 敷物 or インシュレーター</span>
+          <span>✦ 艶出しワックス</span><span>✦ お手入れクロス</span><span>✦ 納入時調律１回</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GACHA -->
+  <section class="gacha-section">
+    <div class="container fade-in-up">
+      <h2 class="section-title" style="margin-bottom:15px;">新春 キャッシュバック運試し</h2>
+      <p style="margin-bottom:40px; color: var(--c-text-light);">ハズレなし！ご成約者様全員にチャンス。</p>
+      <div class="gacha-balls-visual">
+        <div class="ball gold"><div>金<br><span style="font-size:0.8rem">1万円</span></div></div>
+        <div class="ball silver"><div>銀<br><span style="font-size:0.8rem">5千円</span></div></div>
+        <div class="ball bronze"><div>銅<br><span style="font-size:0.8rem">3千円</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAFF -->
   <section class="staff-section fade-in-up">
     <div class="container">
       <div class="text-center">
@@ -734,7 +789,7 @@
     </div>
   </section>
 
-  <!-- ★移植セクション 4: セール詳細（開催概要） -->
+  <!-- EVENT OUTLINE -->
   <section class="event-outline fade-in-up">
     <div class="container">
       <div class="outline-box">
@@ -791,6 +846,19 @@
   <!-- FOOTER -->
   <footer>
     <div class="container">
+      <div class="footer-logo">
+        <img src="./image/favicon003.png" alt="トリイロゴ">
+      </div>
+      
+      <div class="footer-social">
+        <a href="https://www.instagram.com/torii__music/" target="_blank" class="footer-social-link" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://x.com/toriimusic" target="_blank" class="footer-social-link" aria-label="X (Twitter)">
+          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+      </div>
+
       <div style="margin-bottom: 15px;">
         <a href="https://www.toriimusic.co.jp/privacy_policy/" target="_blank" style="color: #888; text-decoration: underline; font-size: 0.85rem;">プライバシーポリシー</a>
       </div>
