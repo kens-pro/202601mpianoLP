@@ -6,7 +6,7 @@
   <meta name="format-detection" content="telephone=no">
   
   <title>新春 初売りピアノフェア 2026｜ピアノ専門店トリイ</title>
-  <meta name="description" content="滋賀県のピアノ専門店トリイがお届けする「2026年 新春初売りピアノフェア」。26万円均一の特別モデルや松竹梅の選べる成約特典など、新年の幕開けにふさわしい特別な一台をご用意しています。">
+  <meta name="description" content="滋賀県のピアノ専門店トリイがお届けする「2026年 新春初売りピアノフェア」。厳選された新春特選モデルや松竹梅の選べる成約特典など、新年の幕開けにふさわしい特別な一台をご用意しています。">
   
   <!-- OGP -->
   <meta property="og:title" content="新春 初売りピアノフェア 2026｜ピアノ専門店トリイ">
@@ -17,7 +17,7 @@
   <meta property="og:image" content="./image/piano001.jpg">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="./image/favicon.png">
+  <link rel="icon" type="image/png" href="./image/favicon002.png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -71,7 +71,7 @@
 
     /* === HEADER === */
     .header {
-      position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 999;
       padding: 15px 0;
       transition: background 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
     }
@@ -84,12 +84,12 @@
     .header-inner { display: flex; justify-content: space-between; align-items: center; }
     
     .brand { display: flex; align-items: center; gap: 12px; }
-    .brand-logo img { width: 40px; height: 40px; display: block; }
+    .brand-logo img { width: 40px; height: 40px; display: block; object-fit: contain; }
     .brand-text { font-family: var(--font-serif); font-weight: 700; font-size: 1.25rem; letter-spacing: 0.05em; color: var(--c-black); }
     
     .header-actions { display: flex; align-items: center; gap: 15px; }
     
-    /* SNS Icons in Header */
+    /* SNS Icons */
     .social-links { display: flex; gap: 10px; }
     .social-link {
       width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
@@ -159,6 +159,16 @@
       letter-spacing: 0.3em; margin-bottom: 1.5rem; color: var(--c-gold-light);
       text-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
+    .hero-date-box {
+      margin-top: 20px; background: rgba(0,0,0,0.4); padding: 15px 30px;
+      border: 1px solid rgba(255,255,255,0.3); border-radius: 4px;
+    }
+    .hero-date-main {
+      font-weight: 500; letter-spacing: 0.1em; font-size: 1.2rem; font-family: var(--font-mincho);
+    }
+    .hero-date-sub {
+      font-size: 0.85rem; color: #ffeb3b; display: block; margin-top: 5px; letter-spacing: 0.05em;
+    }
     .scroll-down {
       position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
       color: rgba(255,255,255,0.7); font-size: 0.75rem; letter-spacing: 0.2em;
@@ -214,7 +224,7 @@
     .reason-title { font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 15px; color: var(--c-black); }
     .reason-desc { font-size: 0.9rem; color: var(--c-text-light); line-height: 1.8; }
 
-    /* === SPECIAL OFFER === */
+    /* === SPECIAL OFFER (RENEWED) === */
     .special-offer {
       padding: 120px 0;
       background: linear-gradient(135deg, #fffcfc 0%, #fff 100%);
@@ -224,19 +234,8 @@
       position: absolute; top: 0; left: 0; width: 100%; height: 6px;
       background: repeating-linear-gradient(90deg, var(--c-red), var(--c-red) 30px, #fff 30px, #fff 60px, var(--c-gold) 60px, var(--c-gold) 90px, #fff 90px, #fff 120px);
     }
-    .offer-price-circle {
-      width: 260px; height: 260px; margin: 0 auto 30px;
-      background: radial-gradient(circle at 30% 30%, #d90000, #960000);
-      border-radius: 50%; color: white;
-      display: flex; flex-direction: column; justify-content: center; align-items: center;
-      box-shadow: 0 25px 60px rgba(179, 0, 0, 0.3);
-      border: 8px solid #fff; position: relative;
-    }
-    .offer-price-circle::before {
-      content: ''; position: absolute; inset: -14px; border: 2px solid var(--c-gold); border-radius: 50%; opacity: 0.6;
-    }
-    .price-main { font-family: var(--font-serif); font-size: 5rem; line-height: 1; font-weight: 700; }
-    .price-sub { font-size: 1.2rem; margin-top: -5px; }
+    .offer-header { text-align: center; margin-bottom: 60px; }
+    .offer-title-main { font-family: var(--font-serif); font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--c-red); margin-bottom: 15px; font-weight: 900; }
     
     .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
     .product-card {
@@ -249,14 +248,26 @@
     .product-thumb { height: 260px; overflow: hidden; position: relative; }
     .product-thumb img { transition: transform 0.8s var(--ease-out); }
     .product-card:hover .product-thumb img { transform: scale(1.08); }
-    .tag-exclusive {
+    
+    .tag-special {
       position: absolute; top: 0; left: 0; z-index: 2;
-      background: var(--c-black); color: var(--c-gold);
-      padding: 6px 18px; font-size: 0.75rem; letter-spacing: 0.1em; font-weight: 700;
+      background: linear-gradient(135deg, var(--c-red), var(--c-red-dark)); color: white;
+      padding: 8px 20px; font-size: 0.85rem; letter-spacing: 0.1em; font-weight: 700;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
+    
     .product-body { padding: 30px; text-align: center; }
-    .product-title { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 8px; }
-    .product-meta { color: #888; font-size: 0.9rem; margin-bottom: 24px; display: block; }
+    .product-title { font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: 8px; font-weight: 700; }
+    .product-meta { color: #888; font-size: 0.9rem; margin-bottom: 15px; display: block; }
+    
+    .product-price-box {
+      margin: 20px 0 25px; padding: 15px 0;
+      border-top: 1px dashed #ddd; border-bottom: 1px dashed #ddd;
+    }
+    .price-label { display: block; font-size: 0.8rem; color: var(--c-red); font-weight: 700; margin-bottom: 5px; }
+    .price-value { font-family: var(--font-serif); font-size: 2rem; color: var(--c-black); font-weight: 700; line-height: 1; }
+    .price-unit { font-size: 1rem; font-weight: normal; margin-left: 2px; }
+    
     .btn-arrow {
       display: inline-flex; align-items: center; gap: 8px;
       color: var(--c-red); font-weight: 700; letter-spacing: 0.05em; font-size: 0.95rem;
@@ -536,7 +547,7 @@
     <div class="container header-inner">
       <div class="brand">
         <div class="brand-logo">
-           <img src="./image/favicon003.png" alt="トリイロゴ">
+           <img src="./image/favicon002.png" alt="トリイロゴ">
         </div>
         <span class="brand-text">トリイ</span>
       </div>
@@ -573,7 +584,11 @@
         音色と共に。
       </h1>
       <p class="hero-sub">新春 初売りピアノフェア</p>
-      <p style="margin-top:15px; font-weight:500; letter-spacing:0.15em; font-family:var(--font-mincho);">2026.1.4 START</p>
+      
+      <div class="hero-date-box">
+        <p class="hero-date-main">2026.1.4(日) 〜 1.11(日)</p>
+        <span class="hero-date-sub">※1.5(月)は定休日</span>
+      </div>
     </div>
     <div class="scroll-down">SCROLL</div>
   </section>
@@ -631,48 +646,55 @@
     </div>
   </section>
 
-  <!-- SPECIAL OFFER: 26万円均一 -->
+  <!-- SPECIAL OFFER (RENEWED) -->
   <section class="special-offer" id="special">
     <div class="decoration-line"></div>
     <div class="container">
-      <div class="offer-highlight fade-in-up">
-        <h2 class="section-title" style="margin-bottom: 40px;">新春 特別プライス</h2>
-        <div class="offer-price-circle">
-          <span style="font-size: 1.1rem; letter-spacing: 0.1em; margin-top: 10px;">2026年記念</span>
-          <div class="price-main">26<span style="font-size: 2rem; margin-left: 5px;">万円</span></div>
-          <span class="price-sub">(税込)</span>
-        </div>
-        <p style="color: var(--c-text-light); font-weight: 500;">新春だけの特別企画。各1台限りの早い者勝ちです。</p>
+      <div class="offer-header fade-in-up">
+        <h2 class="offer-title-main">新春 特選ピアノ３選</h2>
+        <p>担当者が厳選した、年に一度の特別価格モデル。</p>
       </div>
 
       <div class="products-grid">
         <!-- 商品1 -->
         <div class="product-card fade-in-up">
-          <span class="tag-exclusive">限定1台</span>
+          <span class="tag-special">新春特選</span>
           <div class="product-thumb"><img src="image/IMG_8240.JPG" alt="YAMAHA UX"></div>
           <div class="product-body">
             <h3 class="product-title">YAMAHA UX</h3>
             <span class="product-meta">X支柱モデル / 高さ131cm</span>
+            <div class="product-price-box">
+              <span class="price-label">新春特別価格</span>
+              <span class="price-value">438,000<span class="price-unit">円(税込)</span></span>
+            </div>
             <a href="#contact" class="btn-arrow">在庫を確認する<svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
           </div>
         </div>
         <!-- 商品2 -->
         <div class="product-card fade-in-up" style="transition-delay: 0.1s;">
-          <span class="tag-exclusive">限定1台</span>
+          <span class="tag-special">新春特選</span>
           <div class="product-thumb"><img src="image/0011.jpg" alt="YAMAHA U3H"></div>
           <div class="product-body">
             <h3 class="product-title">YAMAHA U3H</h3>
             <span class="product-meta">ベストセラー / 豊かな響き</span>
+            <div class="product-price-box">
+              <span class="price-label">新春特別価格</span>
+              <span class="price-value">348,000<span class="price-unit">円(税込)</span></span>
+            </div>
             <a href="#contact" class="btn-arrow">在庫を確認する<svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
           </div>
         </div>
         <!-- 商品3 -->
         <div class="product-card fade-in-up" style="transition-delay: 0.2s;">
-          <span class="tag-exclusive">限定1台</span>
+          <span class="tag-special">新春特選</span>
           <div class="product-thumb"><img src="image/DSC_0100.jpg" alt="YAMAHA U10A"></div>
           <div class="product-body">
             <h3 class="product-title">YAMAHA U10A</h3>
             <span class="product-meta">高年式 / スタンダード</span>
+            <div class="product-price-box">
+              <span class="price-label">新春特別価格</span>
+              <span class="price-value">418,000<span class="price-unit">円(税込)</span></span>
+            </div>
             <a href="#contact" class="btn-arrow">在庫を確認する<svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
           </div>
         </div>
@@ -733,7 +755,7 @@
     </div>
   </section>
 
-  <!-- GACHA (Renewal) -->
+  <!-- GACHA (Renewal v2) -->
   <section class="gacha-section">
     <div class="container fade-in-up">
       <div class="gacha-header">
@@ -940,7 +962,8 @@
         <div class="outline-row">
           <div class="outline-item">
             <strong>開催日時</strong>
-            2026年1月4日(日)<br>11:00 - 19:00
+            2026年1月4日(日) 〜 1月11日(日)<br>11:00 - 19:00
+            <span style="font-size:0.8em; display:block; margin-top:5px; color:#ccc;">※1月5日(月)は定休日</span>
           </div>
           <div class="outline-item">
             <strong>会場</strong>
@@ -990,7 +1013,7 @@
   <footer>
     <div class="container">
       <div class="footer-logo">
-        <img src="./image/favicon003.png" alt="トリイロゴ">
+        <img src="./image/favicon002.png" alt="トリイロゴ">
       </div>
       
       <div class="footer-social">
