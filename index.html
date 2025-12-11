@@ -159,16 +159,27 @@
       letter-spacing: 0.3em; margin-bottom: 1.5rem; color: var(--c-gold-light);
       text-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
+    
+    /* 修正: 営業時間の見やすさ向上 */
     .hero-date-box {
-      margin-top: 20px; background: rgba(0,0,0,0.4); padding: 15px 30px;
-      border: 1px solid rgba(255,255,255,0.3); border-radius: 4px;
+      margin-top: 20px; background: rgba(0,0,0,0.6); padding: 20px 40px;
+      border: 1px solid rgba(255,255,255,0.3); border-radius: 8px;
+      backdrop-filter: blur(5px);
     }
     .hero-date-main {
-      font-weight: 500; letter-spacing: 0.1em; font-size: 1.2rem; font-family: var(--font-mincho);
+      font-weight: 700; letter-spacing: 0.1em; font-size: 1.4rem; font-family: var(--font-mincho);
+      border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 10px; margin-bottom: 10px;
     }
-    .hero-date-sub {
-      font-size: 0.85rem; color: #ffeb3b; display: block; margin-top: 5px; letter-spacing: 0.05em;
+    .hero-schedule-list {
+      text-align: left; font-size: 0.95rem; line-height: 1.8;
     }
+    .hero-schedule-row {
+      display: flex; justify-content: space-between; gap: 20px;
+    }
+    .hero-schedule-date { color: var(--c-gold-light); font-weight: 700; }
+    .hero-schedule-time { color: #fff; }
+    .text-attention { color: #ff8a80; font-weight: 700; }
+
     .scroll-down {
       position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
       color: rgba(255,255,255,0.7); font-size: 0.75rem; letter-spacing: 0.2em;
@@ -234,6 +245,7 @@
       position: absolute; top: 0; left: 0; width: 100%; height: 6px;
       background: repeating-linear-gradient(90deg, var(--c-red), var(--c-red) 30px, #fff 30px, #fff 60px, var(--c-gold) 60px, var(--c-gold) 90px, #fff 90px, #fff 120px);
     }
+    
     .offer-header { text-align: center; margin-bottom: 60px; }
     .offer-title-main { font-family: var(--font-serif); font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--c-red); margin-bottom: 15px; font-weight: 900; }
     
@@ -476,7 +488,18 @@
     }
     .outline-title { font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 30px; color: var(--c-gold); }
     .outline-row { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; font-size: 1.1rem; }
-    .outline-item strong { display: block; font-size: 0.8rem; color: #888; margin-bottom: 5px; }
+    
+    /* 修正: アウトラインリストデザイン */
+    .outline-schedule-list {
+      text-align: left; margin: 0 auto; display: inline-block;
+    }
+    .outline-schedule-list dl {
+      display: grid; grid-template-columns: 140px 1fr; gap: 10px 20px;
+      margin: 0;
+    }
+    .outline-schedule-list dt { font-weight: 700; color: var(--c-gold); }
+    .outline-schedule-list dd { margin: 0; }
+    .outline-item strong { display: block; font-size: 0.85rem; color: #888; margin-bottom: 10px; text-align: left; border-bottom: 1px solid #444; padding-bottom: 5px; }
 
     /* === ACCESS === */
     .access-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; background: #fff; box-shadow: var(--shadow-soft); }
@@ -534,6 +557,10 @@
       .gacha-content-wrapper { flex-direction: column; gap: 40px; }
       .gacha-title-big { font-size: 3.5rem; }
       .gacha-prizes { width: 100%; }
+      
+      /* Outline Responsive */
+      .outline-row { flex-direction: column; gap: 30px; text-align: left; }
+      .outline-schedule-list { display: block; width: 100%; }
     }
     @media (max-width: 400px) {
       .header-btn { font-size: 0.8rem; padding: 8px 16px; }
@@ -587,7 +614,20 @@
       
       <div class="hero-date-box">
         <p class="hero-date-main">2026.1.4(日) 〜 1.11(日)</p>
-        <span class="hero-date-sub">※1.5(月)は定休日</span>
+        <div class="hero-schedule-list">
+          <div class="hero-schedule-row">
+            <span class="hero-schedule-date">1.4(日)</span>
+            <span class="hero-schedule-time">11:00 - 18:00</span>
+          </div>
+          <div class="hero-schedule-row">
+            <span class="hero-schedule-date text-attention">1.5(月)</span>
+            <span class="hero-schedule-time text-attention">定休日</span>
+          </div>
+          <div class="hero-schedule-row">
+            <span class="hero-schedule-date">1.6(火)～</span>
+            <span class="hero-schedule-time">10:30 - 19:30</span>
+          </div>
+        </div>
       </div>
     </div>
     <div class="scroll-down">SCROLL</div>
@@ -661,11 +701,11 @@
           <span class="tag-special">新春特選</span>
           <div class="product-thumb"><img src="image/IMG_8240.JPG" alt="YAMAHA UX"></div>
           <div class="product-body">
-            <h3 class="product-title">YAMAHA U3M</h3>
+            <h3 class="product-title">YAMAHA UX</h3>
             <span class="product-meta">X支柱モデル / 高さ131cm</span>
             <div class="product-price-box">
               <span class="price-label">新春特別価格</span>
-              <span class="price-value">330,000<span class="price-unit">円(税込)</span></span>
+              <span class="price-value">438,000<span class="price-unit">円(税込)</span></span>
             </div>
             <a href="#contact" class="btn-arrow">在庫を確認する<svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
           </div>
@@ -679,7 +719,7 @@
             <span class="product-meta">ベストセラー / 豊かな響き</span>
             <div class="product-price-box">
               <span class="price-label">新春特別価格</span>
-              <span class="price-value">330,000<span class="price-unit">円(税込)</span></span>
+              <span class="price-value">348,000<span class="price-unit">円(税込)</span></span>
             </div>
             <a href="#contact" class="btn-arrow">在庫を確認する<svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
           </div>
@@ -689,11 +729,11 @@
           <span class="tag-special">新春特選</span>
           <div class="product-thumb"><img src="image/DSC_0100.jpg" alt="YAMAHA U10A"></div>
           <div class="product-body">
-            <h3 class="product-title">YAMAHA U1H</h3>
+            <h3 class="product-title">YAMAHA U10A</h3>
             <span class="product-meta">高年式 / スタンダード</span>
             <div class="product-price-box">
               <span class="price-label">新春特別価格</span>
-              <span class="price-value">280,000<span class="price-unit">円(税込)</span></span>
+              <span class="price-value">418,000<span class="price-unit">円(税込)</span></span>
             </div>
             <a href="#contact" class="btn-arrow">在庫を確認する<svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
           </div>
@@ -830,7 +870,7 @@
     </div>
   </section>
 
-  <!-- DETAILED LIST -->
+  <!-- DETAILED LIST (Restored) -->
   <section class="detail-list fade-in-up">
     <div class="container">
       <div class="text-center">
@@ -843,155 +883,51 @@
         <div class="tab" data-tab="grand">グランドピアノ</div>
       </div>
 
-      <span style="background-color: #ccffff;">アップライトピアノ（詳細は品番をクリックしてください。）</span>
+      <!-- アップライト -->
+      <div class="tab-content active" id="upright">
+        <span style="background-color: #ccffff; display:inline-block; padding:5px 10px; margin-bottom:10px; font-weight:bold;">アップライトピアノ（詳細は品番をクリックしてください。）</span>
+        <div class="table-container">
+          <table class="piano-table">
+            <thead>
+              <tr><th>メーカー</th><th>品番</th><th>販売価格（税込）</th><th>機能・他</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>エテルナ</td><td>E2D</td><td>￥220,000</td><td></td></tr>
+              <tr><td>ヤマハ</td><td><a href="https://www.toriimusic.co.jp/18164/">No.U1</a></td><td>￥264,000</td><td></td></tr>
+              <tr><td>ヤマハ</td><td><a href="https://www.toriimusic.co.jp/17206/">U1H</a></td><td>￥308,000</td><td><span style="color:#339966; font-weight:bold;">商談中</span></td></tr>
+              <tr><td>ヤマハ</td><td><a href="https://www.toriimusic.co.jp/16526/">U1H</a></td><td>￥319,000</td><td></td></tr>
+              <tr><td>ヤマハ</td><td><a href="https://www.toriimusic.co.jp/14191/">U2H</a></td><td>￥330,000</td><td></td></tr>
+              <tr><td>ヤマハ</td><td><a href="https://www.toriimusic.co.jp/20528/">U3H</a></td><td>￥363,000</td><td></td></tr>
+              <tr><td>ヤマハ</td><td><a href="https://www.toriimusic.co.jp/24582/">UX</a></td><td>￥396,000</td><td><span class="stock-badge bg-red">X支柱 初代</span></td></tr>
+              <tr><td>ヤマハ</td><td><a href="https://www.toriimusic.co.jp/21546/">U3A</a></td><td>￥396,000</td><td></td></tr>
+              <tr><td>ヤマハ</td><td><a href="https://www.toriimusic.co.jp/25885/">U10A</a></td><td>￥429,500</td><td></td></tr>
+              <tr><td>ヤマハ</td><td><a href="https://www.toriimusic.co.jp/12541/">YUS</a></td><td>￥429,000</td><td></td></tr>
+              <tr><td>ヤマハ</td><td><a href="https://www.toriimusic.co.jp/15438">U10A</a></td><td>￥440,000</td><td></td></tr>
+              <tr><td>ヤマハ</td><td><a href="https://www.toriimusic.co.jp/19544/">UX1</a></td><td>￥451,000</td><td><span class="stock-badge bg-red">X支柱</span></td></tr>
+              <tr><td>ヤマハ</td><td><a href="https://www.toriimusic.co.jp/20949/">UX2</a></td><td>￥462,000</td><td><span class="stock-badge bg-red">X支柱</span></td></tr>
+              <tr><td>ヤマハ</td><td><a href="https://www.toriimusic.co.jp/21563/">U100</a></td><td>￥473,000</td><td></td></tr>
+              <tr><td>ヤマハ</td><td><a href="https://www.toriimusic.co.jp/20951/">UX10A</a></td><td>￥638,000</td><td><span class="stock-badge bg-red">X支柱</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-<table class="piano-table">
-<thead>
-<tr><th>メーカー</th><th>品番</th><th>販売価格（税込）</th><th>機能・他</th></tr>
-</thead>
-<tbody>
-
-<!-- ① エテルナ（¥220,000） -->
-<tr>
-  <td>エテルナ</td>
-  <td>E2D</td>
-  <td>￥220,000</td>
-  <td></td>
-</tr>
-
-<!-- ② No.U1（¥264,000） -->
-<tr>
-  <td>ヤマハ</td>
-  <td><a href="https://www.toriimusic.co.jp/18164/">No.U1</a></td>
-  <td>￥264,000</td>
-  <td></td>
-</tr>
-
-<!-- ③ U1H（¥308,000） -->
-<tr>
-  <td>ヤマハ</td>
-  <td><a href="https://www.toriimusic.co.jp/17206/">U1H</a></td>
-  <td>￥308,000</td>
-  <td><span style="color:#339966;">商談中</span></td>
-</tr>
-
-<!-- ④ U1H（¥319,000） -->
-<tr>
-  <td>ヤマハ</td>
-  <td><a href="https://www.toriimusic.co.jp/16526/">U1H</a></td>
-  <td>￥319,000</td>
-  <td></td>
-</tr>
-
-<!-- ⑤ U2H（¥330,000） -->
-<tr>
-  <td>ヤマハ</td>
-  <td><a href="https://www.toriimusic.co.jp/14191/">U2H</a></td>
-  <td>￥330,000</td>
-  <td></td>
-</tr>
-
-<!-- ⑥ U3H（¥363,000） -->
-<tr>
-  <td>ヤマハ</td>
-  <td><a href="https://www.toriimusic.co.jp/20528/">U3H</a></td>
-  <td>￥363,000</td>
-  <td></td>
-</tr>
-
-<!-- ⑦ UX（¥396,000） -->
-<tr>
-  <td>ヤマハ</td>
-  <td><a href="https://www.toriimusic.co.jp/24582/">UX</a></td>
-  <td>￥396,000</td>
-  <td>X支柱 初代</td>
-</tr>
-
-<!-- ⑧ U3A（¥396,000） -->
-<tr>
-  <td>ヤマハ</td>
-  <td><a href="https://www.toriimusic.co.jp/21546/">U3A</a></td>
-  <td>￥396,000</td>
-  <td></td>
-</tr>
-
-<!-- ⑨ U10A（¥429,500 → LPと整合性をとり税込 ¥429,500表記） -->
-<tr>
-  <td>ヤマハ</td>
-  <td><a href="https://www.toriimusic.co.jp/25885/">U10A</a></td>
-  <td>￥429,500</td>
-  <td></td>
-</tr>
-
-<!-- ⑩ YUS（¥429,000） -->
-<tr>
-  <td>ヤマハ</td>
-  <td><a href="https://www.toriimusic.co.jp/12541/">YUS</a></td>
-  <td>￥429,000</td>
-  <td></td>
-</tr>
-
-<!-- ⑪ U10A（¥440,000） -->
-<tr>
-  <td>ヤマハ</td>
-  <td><a href="https://www.toriimusic.co.jp/15438">U10A</a></td>
-  <td>￥440,000</td>
-  <td></td>
-</tr>
-
-<!-- ⑫ UX1（¥451,000） -->
-<tr>
-  <td>ヤマハ</td>
-  <td><a href="https://www.toriimusic.co.jp/19544/">UX1</a></td>
-  <td>￥451,000</td>
-  <td>X支柱</td>
-</tr>
-
-<!-- ⑬ UX2（¥462,000） -->
-<tr>
-  <td>ヤマハ</td>
-  <td><a href="https://www.toriimusic.co.jp/20949/">UX2</a></td>
-  <td>￥462,000</td>
-  <td>X支柱</td>
-</tr>
-
-<!-- ⑭ U100（¥473,000） -->
-<tr>
-  <td>ヤマハ</td>
-  <td><a href="https://www.toriimusic.co.jp/21563/">U100</a></td>
-  <td>￥473,000</td>
-  <td></td>
-</tr>
-
-<!-- ⑮ UX10A（¥638,000） -->
-<tr>
-  <td>ヤマハ</td>
-  <td><a href="https://www.toriimusic.co.jp/20951/">UX10A</a></td>
-  <td>￥638,000</td>
-  <td>X支柱</td>
-</tr>
-
-</tbody>
-</table>
-
-<span style="background-color: #ccffff;">グランドピアノ（詳細は品番をクリックしてください。）</span>
-
-<table class="piano-table">
-<thead>
-<tr><th>メーカー</th><th>品番</th><th>販売価格（税込）</th><th>機能・他</th></tr>
-</thead>
-<tbody>
-
-<tr>
-  <td>ヤマハ</td>
-  <td><a href="https://kens-pro.github.io/G2E/">G2E</a></td>
-  <td>￥935,000</td>
-  <td></td>
-</tr>
-
-</tbody>
-</table>
-
+      <!-- グランド -->
+      <div class="tab-content" id="grand">
+        <span style="background-color: #ccffff; display:inline-block; padding:5px 10px; margin-bottom:10px; font-weight:bold;">グランドピアノ（詳細は品番をクリックしてください。）</span>
+        <div class="table-container">
+          <table class="piano-table">
+            <thead>
+              <tr><th>メーカー</th><th>品番</th><th>販売価格（税込）</th><th>機能・他</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>ヤマハ</td><td><a href="https://kens-pro.github.io/G2E/">G2E</a></td><td>￥935,000</td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- STAFF -->
   <section class="staff-section fade-in-up">
@@ -1032,8 +968,13 @@
         <div class="outline-row">
           <div class="outline-item">
             <strong>開催日時</strong>
-            2026年1月4日(日) 〜 1月11日(日)<br>11:00 - 19:00
-            <span style="font-size:0.8em; display:block; margin-top:5px; color:#ccc;">※1月5日(月)は定休日</span>
+            <div class="outline-schedule-list">
+              <dl>
+                <dt>1.4(日)</dt><dd>11:00 - 18:00</dd>
+                <dt style="color:#ff8a80;">1.5(月)</dt><dd style="color:#ff8a80;">定休日</dd>
+                <dt>1.6(火)～</dt><dd>10:30 - 19:30</dd>
+              </dl>
+            </div>
           </div>
           <div class="outline-item">
             <strong>会場</strong>
