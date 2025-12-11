@@ -89,7 +89,6 @@
     
     .header-actions { display: flex; align-items: center; gap: 15px; }
     
-    /* SNS Icons */
     .social-links { display: flex; gap: 10px; }
     .social-link {
       width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
@@ -160,7 +159,6 @@
       text-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
     
-    /* 修正: 営業時間の見やすさ向上 */
     .hero-date-box {
       margin-top: 20px; background: rgba(0,0,0,0.6); padding: 20px 40px;
       border: 1px solid rgba(255,255,255,0.3); border-radius: 8px;
@@ -170,12 +168,8 @@
       font-weight: 700; letter-spacing: 0.1em; font-size: 1.4rem; font-family: var(--font-mincho);
       border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 10px; margin-bottom: 10px;
     }
-    .hero-schedule-list {
-      text-align: left; font-size: 0.95rem; line-height: 1.8;
-    }
-    .hero-schedule-row {
-      display: flex; justify-content: space-between; gap: 20px;
-    }
+    .hero-schedule-list { text-align: left; font-size: 0.95rem; line-height: 1.8; }
+    .hero-schedule-row { display: flex; justify-content: space-between; gap: 20px; }
     .hero-schedule-date { color: var(--c-gold-light); font-weight: 700; }
     .hero-schedule-time { color: #fff; }
     .text-attention { color: #ff8a80; font-weight: 700; }
@@ -248,6 +242,16 @@
     
     .offer-header { text-align: center; margin-bottom: 60px; }
     .offer-title-main { font-family: var(--font-serif); font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--c-red); margin-bottom: 15px; font-weight: 900; }
+    /* サブタイトル修正: ゴールド系で見やすく */
+    .offer-subtitle-gold {
+      font-family: var(--font-serif); font-size: 1.4rem; color: #a58135; 
+      font-weight: 700; letter-spacing: 0.1em;
+      position: relative; display: inline-block; padding-bottom: 15px;
+    }
+    .offer-subtitle-gold::after {
+      content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+      width: 60px; height: 3px; background: #a58135;
+    }
     
     .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
     .product-card {
@@ -289,40 +293,74 @@
     .btn-arrow svg { transition: transform 0.3s ease; }
     .btn-arrow:hover svg { transform: translateX(6px); }
 
-    /* === BENEFITS (松竹梅) === */
-    .benefits { padding: 100px 0; background: #fff; }
+    /* === BENEFITS (Gorgeous Renewal) === */
+    .benefits {
+      padding: 100px 0;
+      /* 背景：高級感のある和紙風 */
+      background-color: #fdfcf8;
+      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h22v20h2V0h2v20h2V0h2v20h2V0h2v20h2v2H20v-1.5zM0 20h2v20H0V20zm4 0h2v20H4V20zm4 0h2v20H8V20zm4 0h2v20h-2V20zm4 0h2v20h-2V20zm4 0h2v20h-2V20zm4 0h2v20h-2V20zm4 0h2v20h-2V20zm4 0h2v20h-2V20z' fill='%23d4af37' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+    }
     .sho-chiku-bai {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 60px;
     }
     .rank-card {
-      background: #fdfdfd; padding: 50px 30px;
-      border: 1px solid #eee; position: relative; overflow: hidden; text-align: center;
+      background: #fff; padding: 0;
+      border: 1px solid #e0e0e0;
+      position: relative; overflow: hidden; text-align: center;
       transition: all 0.4s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      border-radius: 8px;
     }
-    .rank-card:hover { border-color: var(--c-gold); transform: translateY(-5px); }
-    .rank-char {
-      font-family: var(--font-serif); font-size: 6rem;
-      position: absolute; top: -20px; right: -20px; line-height: 1;
-      z-index: 0; font-weight: 900; opacity: 0.5;
+    .rank-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(197, 160, 89, 0.2); }
+    
+    /* カードヘッダー：水引イメージ */
+    .rank-card-header {
+      padding: 20px 0;
+      color: white;
+      position: relative;
     }
-    .rank-card.matsu .rank-char { color: #edf7ed; }
-    .rank-card.take .rank-char { color: #f1f8e9; }
-    .rank-card.ume .rank-char { color: #fce4ec; }
-    .rank-icon {
-      width: 64px; height: 64px; margin: 0 auto 20px;
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      color: white; font-family: var(--font-serif); font-size: 1.6rem;
-      position: relative; z-index: 1;
+    .rank-card-header::after {
+      content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%);
+      width: 0; height: 0;
+      border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid;
     }
-    .rank-card.matsu .rank-icon { background: #2e7d32; }
-    .rank-card.take .rank-icon { background: #7cb342; }
-    .rank-card.ume .rank-icon { background: #d81b60; }
-    .rank-header { position: relative; z-index: 1; margin-bottom: 25px; }
-    .rank-items-list { list-style: none; margin-top: 25px; position: relative; z-index: 1; text-align: left; }
+    /* 松竹梅ごとのカラー */
+    .rank-card.matsu { border-top: 5px solid #b8860b; }
+    .rank-card.matsu .rank-card-header { background: linear-gradient(135deg, #b8860b, #e6c67e); border-top-color: #b8860b; }
+    
+    .rank-card.take { border-top: 5px solid #d90000; } /* 竹は赤系でおめでたく */
+    .rank-card.take .rank-card-header { background: linear-gradient(135deg, #d90000, #ff6b6b); border-top-color: #d90000; }
+    
+    .rank-card.ume { border-top: 5px solid #d81b60; }
+    .rank-card.ume .rank-card-header { background: linear-gradient(135deg, #d81b60, #f48fb1); border-top-color: #d81b60; }
+
+    .rank-icon-img {
+      width: 60px; height: 60px; line-height: 60px;
+      background: #fff; border-radius: 50%;
+      margin: 0 auto 10px;
+      font-family: var(--font-serif); font-size: 1.8rem; font-weight: 900;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    .rank-card.matsu .rank-icon-img { color: #b8860b; border: 2px solid #b8860b; }
+    .rank-card.take .rank-icon-img { color: #d90000; border: 2px solid #d90000; }
+    .rank-card.ume .rank-icon-img { color: #d81b60; border: 2px solid #d81b60; }
+
+    .rank-price-condition {
+      background: #fafafa; padding: 10px; margin: 20px 20px 0;
+      border-radius: 4px; font-weight: 700; color: var(--c-black); font-size: 0.9rem;
+      border: 1px dashed #ccc;
+    }
+
+    .rank-body { padding: 20px 25px 40px; }
+    .rank-items-list { list-style: none; text-align: left; margin-top: 15px; }
     .rank-items-list li {
-      padding: 10px 0; border-bottom: 1px dashed #ddd; font-weight: 500; font-size: 0.9rem;
+      padding: 12px 0; border-bottom: 1px dotted #ccc; font-weight: 500; font-size: 0.95rem;
+      display: flex; align-items: center;
     }
-    .rank-items-list li::before { content: '✔'; color: var(--c-gold-rich); margin-right: 8px; }
+    .rank-items-list li::before {
+      content: '✿'; color: var(--c-gold); margin-right: 8px; font-size: 0.8rem;
+    }
+    .rank-items-list li:last-child { border-bottom: none; }
 
     /* === GACHA (Renewal v2) === */
     .gacha-section {
@@ -581,7 +619,7 @@
       <div class="header-actions">
         <div class="social-links">
           <a href="https://www.instagram.com/torii__music/" target="_blank" class="social-link" aria-label="Instagram">
-            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
           </a>
           <a href="https://x.com/toriimusic" target="_blank" class="social-link" aria-label="X (Twitter)">
             <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
@@ -692,14 +730,14 @@
     <div class="container">
       <div class="offer-header fade-in-up">
         <h2 class="offer-title-main">新春 特選ピアノ３選</h2>
-        <p>担当者が厳選した、年に一度の特別価格モデル。</p>
+        <p class="offer-subtitle-gold">ヤマハの黄金期の厳選中古ピアノ</p>
       </div>
 
       <div class="products-grid">
         <!-- 商品1 -->
         <div class="product-card fade-in-up">
           <span class="tag-special">新春特選</span>
-          <div class="product-thumb"><img src="image/IMG_8240.JPG" alt="YAMAHA UX"></div>
+          <div class="product-thumb"><img src="image/IMG_8240.JPG" alt="YAMAHA U3M"></div>
           <div class="product-body">
             <h3 class="product-title">YAMAHA U3M</h3>
             <span class="product-meta">スタンダードモデル / 高さ131cm</span>
@@ -727,7 +765,7 @@
         <!-- 商品3 -->
         <div class="product-card fade-in-up" style="transition-delay: 0.2s;">
           <span class="tag-special">新春特選</span>
-          <div class="product-thumb"><img src="image/DSC_0100.jpg" alt="YAMAHA U10A"></div>
+          <div class="product-thumb"><img src="image/DSC_0100.jpg" alt="YAMAHA U1H"></div>
           <div class="product-body">
             <h3 class="product-title">YAMAHA U1H</h3>
             <span class="product-meta">定番モデル / 高さ121cm</span>
@@ -748,40 +786,58 @@
     <div class="container">
       <div class="text-center fade-in-up">
         <span class="section-label">PREMIUM BENEFITS</span>
-        <h2 class="section-title">選べる歓び、<br>新春プレミアム特典。</h2>
+        <h2 class="section-title">購入価格別<br>新春プレミアム特典</h2>
+        <p style="color:#888; margin-bottom:40px;">※中古ピアノ（税込）のご購入価格に応じた特典です</p>
       </div>
       <div class="sho-chiku-bai">
         <!-- 松 -->
         <div class="rank-card matsu fade-in-up">
-          <div class="rank-char">松</div>
-          <div class="rank-header"><div class="rank-icon">松</div><h3>最高級の安心</h3></div>
-          <p style="font-size:0.9rem; color:#666;">以下より1点お選びください (上限3万円)</p>
-          <ul class="rank-items-list">
-            <li>納品据え付け料金 無料</li>
-            <li>高級ピアノマット</li>
-          </ul>
+          <div class="rank-card-header">
+            <div class="rank-icon-img">松</div>
+            <h3 style="margin:0; font-size:1.4rem;">最高級の安心</h3>
+          </div>
+          <div class="rank-price-condition">税別 30万円以上</div>
+          <div class="rank-body">
+            <p style="font-size:0.85rem; color:#666; margin-bottom:15px;">以下より1点お選びください (上限3万円)</p>
+            <ul class="rank-items-list">
+              <li>納品据え付け料金 無料</li>
+              <li>高級ピアノマット</li>
+            </ul>
+          </div>
         </div>
+        
         <!-- 竹 -->
         <div class="rank-card take fade-in-up" style="transition-delay: 0.1s;">
-          <div class="rank-char">竹</div>
-          <div class="rank-header"><div class="rank-icon">竹</div><h3>演奏を快適に</h3></div>
-          <p style="font-size:0.9rem; color:#666;">以下より1点お選びください (上限1万円)</p>
-          <ul class="rank-items-list">
-            <li>ピアノ椅子</li>
-            <li>踏み台 (足台)</li>
-            <li>吉澤ギフト券 1万円分</li>
-          </ul>
+          <div class="rank-card-header">
+            <div class="rank-icon-img">竹</div>
+            <h3 style="margin:0; font-size:1.4rem;">演奏を快適に</h3>
+          </div>
+          <div class="rank-price-condition">税別 25万円以上</div>
+          <div class="rank-body">
+            <p style="font-size:0.85rem; color:#666; margin-bottom:15px;">以下より1点お選びください (上限1万円)</p>
+            <ul class="rank-items-list">
+              <li>ピアノ椅子</li>
+              <li>踏み台 (足台)</li>
+              <li>吉澤ギフト 1万円分</li>
+            </ul>
+          </div>
         </div>
+        
         <!-- 梅 -->
         <div class="rank-card ume fade-in-up" style="transition-delay: 0.2s;">
-          <div class="rank-char">梅</div>
-          <div class="rank-header"><div class="rank-icon">梅</div><h3>レッスンの友</h3></div>
-          <p style="font-size:0.9rem; color:#666;">以下より1点お選びください</p>
-          <ul class="rank-items-list">
-            <li>メトロノーム</li>
-            <li>フィンガード</li>
-            <li>吉澤ギフト券 5千円分</li>
-          </ul>
+          <div class="rank-card-header">
+            <div class="rank-icon-img">梅</div>
+            <h3 style="margin:0; font-size:1.4rem;">レッスンの友</h3>
+          </div>
+          <div class="rank-price-condition">税別 20万円以上</div>
+          <div class="rank-body">
+            <p style="font-size:0.85rem; color:#666; margin-bottom:15px;">以下より1点お選びください</p>
+            <ul class="rank-items-list">
+              <li>メトロノーム</li>
+              <li>フィンガード</li>
+              <li>吉澤ギフト 5千円分</li>
+            </ul>
+          </div>
         </div>
       </div>
       <!-- 基本特典 -->
@@ -870,7 +926,7 @@
     </div>
   </section>
 
-  <!-- DETAILED LIST (Restored) -->
+  <!-- DETAILED LIST -->
   <section class="detail-list fade-in-up">
     <div class="container">
       <div class="text-center">
