@@ -602,6 +602,81 @@
     @media (max-width: 400px) {
       .header-btn { font-size: 0.8rem; padding: 8px 16px; }
     }
+    /* 知恵蔵セクション全体のスタイル */
+.wisdom-library-area { padding: 100px 0; background-color: var(--c-bg); text-align: center; }
+.wisdom-header { margin-bottom: 60px; }
+.wisdom-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-bottom: 60px; }
+.wisdom-card { background: #fff; padding: 40px 25px; border: 1px solid #eee; border-radius: 4px; transition: 0.4s var(--ease-out); box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
+.wisdom-card:hover { transform: translateY(-10px); border-color: var(--c-gold); box-shadow: 0 15px 35px rgba(197, 160, 89, 0.15); }
+.wisdom-tag { font-family: var(--font-serif); font-size: 0.8rem; color: var(--c-gold-rich); border: 1px solid var(--c-gold-light); padding: 2px 15px; margin-bottom: 20px; letter-spacing: 0.1em; background: #fff; display: inline-block; }
+.wisdom-card h4 { font-family: var(--font-serif); font-size: 1.2rem; color: var(--c-black); margin-bottom: 15px; line-height: 1.5; }
+.wisdom-card p { font-size: 0.9rem; color: var(--c-text-light); line-height: 1.7; }
+
+/* LINE登録枠 */
+.line-invite-container {
+    max-width: 900px; margin: 40px auto 0; background: #fff;
+    border: 2px solid var(--c-gold-light); padding: 60px 40px;
+    position: relative; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+}
+.line-invite-container::before {
+    content: ""; position: absolute; inset: 12px; border: 1px solid rgba(197, 160, 89, 0.3); pointer-events: none;
+}
+.line-invite-label {
+    display: inline-block; background: var(--c-red); color: #fff;
+    padding: 6px 25px; font-size: 0.9rem; font-weight: 700; margin-bottom: 30px; border-radius: 4px;
+}
+.line-invite-title { font-family: var(--font-serif); font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.4; color: var(--c-black); margin-bottom: 25px; }
+.line-invite-title span { color: var(--c-gold-rich); text-decoration: underline; text-underline-offset: 10px; }
+.line-invite-text { font-size: 1.1rem; color: #555; margin-bottom: 45px; }
+
+/* === 【重要】絶対に迷わせないボタンデザイン === */
+.line-btn-wrapper { display: flex; justify-content: center; }
+
+.ultimate-line-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 15px !important;
+    background-color: #06C755 !important; /* LINEグリーン */
+    color: #ffffff !important;           /* 絶対に白文字 */
+    padding: 24px 60px !important;
+    border-radius: 100px !important;
+    font-size: clamp(1.1rem, 2.5vw, 1.6rem) !important;
+    font-weight: 800 !important;
+    text-decoration: none !important;
+    box-shadow: 0 12px 30px rgba(6, 199, 85, 0.4) !important;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    border: none !important;
+    cursor: pointer !important;
+}
+
+.ultimate-line-btn:hover {
+    background-color: #05b34c !important;
+    transform: translateY(-5px) scale(1.03) !important;
+    box-shadow: 0 15px 40px rgba(6, 199, 85, 0.5) !important;
+}
+
+.line-logo-svg {
+    width: 35px !important;
+    height: 35px !important;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    box-shadow: none !important; /* 画像の影を消去 */
+    border-radius: 0 !important;
+}
+
+.btn-main-text {
+    color: #ffffff !important;
+    letter-spacing: 0.05em;
+}
+
+.line-footer-msg { margin-top: 30px; font-size: 0.9rem; color: #888; }
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+    .wisdom-grid { grid-template-columns: 1fr; gap: 20px; }
+    .line-invite-container { padding: 40px 20px; }
+    .ultimate-line-btn { padding: 18px 25px !important; font-size: 1.1rem !important; width: 100% !important; }
+}
   </style>
   <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -936,6 +1011,75 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
     </div>
   </section>
+  <!-- === 【最終修正版】新春特別企画：ピアノ選びの知恵蔵 === -->
+<section id="wisdom-library" class="section wisdom-library-area">
+    <div class="container">
+        <!-- ヘッダー -->
+        <div class="fade-in-up text-center wisdom-header">
+            <span class="section-label">NEW YEAR KNOWLEDGE</span>
+            <h2 class="section-title">挑戦するあなたへ、<br>130年の知恵を贈ります。</h2>
+            <p class="section-desc">
+                ピアノ選びの不安は、正しい知識で「希望」に変わります。<br>
+                後悔しない一台と出会うために、私たちが培ってきたノウハウをすべて公開いたしました。
+            </p>
+        </div>
+
+        <!-- 知恵カード -->
+        <div class="wisdom-grid fade-in-up">
+            <div class="wisdom-card">
+                <div class="wisdom-tag">其の一</div>
+                <h4>ピアノ選び、その先へ</h4>
+                <p>電子とアコースティック、<br>その本当の違いを解説。</p>
+            </div>
+            <div class="wisdom-card">
+                <div class="wisdom-tag">其の二</div>
+                <h4>置き場所の"正解"</h4>
+                <p>プロが教える、ピアノに最適な<br>室内環境と配置のコツ。</p>
+            </div>
+            <div class="wisdom-card">
+                <div class="wisdom-tag">其の三</div>
+                <h4>本体以外にかかる費用</h4>
+                <p>運搬や調律など、購入前に<br>知っておきたい予算の全て。</p>
+            </div>
+            <div class="wisdom-card">
+                <div class="wisdom-tag">其の四</div>
+                <h4>正しい姿勢マスター</h4>
+                <p>一生モノの演奏技術を育む、<br>美しい姿勢の第一歩。</p>
+            </div>
+            <div class="wisdom-card">
+                <div class="wisdom-tag">其の五</div>
+                <h4>失敗談から学ぶ成功法則</h4>
+                <p>多くの人が陥る「罠」を知り、<br>最高の1台を選ぶ道筋。</p>
+            </div>
+            <div class="wisdom-card">
+                <div class="wisdom-tag">其の六</div>
+                <h4>用意する時の4つの急所</h4>
+                <p>搬入から設置後のケアまで、<br>プロのチェックポイント。</p>
+            </div>
+        </div>
+
+        <!-- LINE登録：ハッキリ見える「塗り」のボタンデザイン -->
+        <div class="line-invite-container fade-in-up">
+            <div class="line-invite-inner">
+                <div class="line-invite-label">新春限定・無料公開中</div>
+                <h3 class="line-invite-title">LINE友だち登録で<br><span>「6大デジタルガイド」</span>をプレゼント</h3>
+                <p class="line-invite-text">
+                    新春フェア期間中、上記すべてのコンテンツにアクセスできる<br>
+                    特設ライブラリのURLをLINEですぐにお送りします。
+                </p>
+                
+                <div class="line-btn-wrapper">
+                    <!-- 強烈な視認性を持つ「緑の塗りボタン」 -->
+                    <a href="https://lin.ee/Hm79p0k" class="ultimate-line-btn">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" alt="LINE" class="line-logo-svg">
+                        <span class="btn-main-text">無料でガイドを受け取る</span>
+                    </a>
+                </div>
+                <p class="line-footer-msg">※登録は無料です。ピアノ選びの参考にぜひお役立てください。</p>
+            </div>
+        </div>
+    </div>
+</section>
 
   <!-- DETAILED LIST (Restored + U3M Added) -->
   <section class="detail-list fade-in-up">
